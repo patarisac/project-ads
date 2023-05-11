@@ -2,3 +2,4 @@
 **/.env
 app/database_data
 app/utils/secret.py
+node_modules
