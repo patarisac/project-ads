@@ -1,3 +1,4 @@
+/* CSS INDEX */
 .jumbotron {
   /* position: relative; */
   padding: 3rem 0rem;
@@ -18,18 +19,17 @@
   /* align-items: center; */
 }
 
-.navbar-brand {
-  width: 1cm;
-}
 .jumbotron h1 {
   width: 5cm;
   font-weight: 400;
   font-size: 10ch;
+  font-family: 'Inter', sans-serif;
 }
 
 .jumbotron p {
   width: 10cm;
   font-size: 3ch;
+  font-family: 'Zilla Slab', serif;
 }
 
 .testimoni {
@@ -42,16 +42,41 @@
   background-color: #f2f5f5;
 }
 
+.testimoni img {
+  width: 4ch;
+  position: absolute;
+  top: 110%;
+  margin-left: 5ch;
+  transform: translate(-50%, -50%);
+}
+
+.lead {
+  border: 1px solid #000;
+  padding: 0 20px 0 30px;
+  width: 480px;
+  height: 280px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #ffff;
+}
+
 .testimoni p {
   width: 8cm;
-  font-size: 2ch;
+  font-size: 100%;
+  font-weight: 200;
+  /* line-height: 30px; */
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
 .testi {
   background-color: #f2f5f5;
-  font-size: 3ch;
-  padding: 2rem 3rem 2rem 5rem;
+  font-size: 4ch;
+  padding: 2rem 3rem 1rem 5rem;
+  font-weight: 100;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+/* AKHIR CSS INDEX */
 
 .login {
   position: absolute;
