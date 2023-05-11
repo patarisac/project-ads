@@ -78,64 +78,77 @@
 }
 /* AKHIR CSS INDEX */
 
-.login {
-  position: absolute;
-  align-items: center;
-  justify-content: space-evenly;
-  display: flex;
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
+/* AWAL CSS LOGIN */
+.login img {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
 }
 
-.login img {
-  width: 700px;
-  height: 600px;
-  top: 0%;
-  left: 0%;
+.form {
+  position: absolute;
+  top: 13%;
+  left: 55%;
+  /* transform: translate(-50%); */
+  margin: 0 30px 30px 30px;
+  width: 500px;
+}
+
+.login h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login form {
-  position: relative;
-  margin: 3rem 3rem 3rem 3rem;
-  align-items: center;
-  justify-content: center;
+  margin-top: 50px;
 }
 
-/* .login form-group {
-  padding: 1rem 1rem 3rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  display: flex;
-  flex-direction: row;
-} */
+.login button {
+  width: 430px;
+  margin: 20px 0 0 10px;
+}
 
-.signup {
-  position: absolute;
-  align-items: center;
-  justify-content: space-evenly;
+.dropdown-item {
   display: flex;
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
+  justify-content: center;
+}
+/* AKHIR CSS LOGIN */
+
+/* AWAL CSS SIGNUP */
+
+.alert {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  visibility: hidden;
+}
+.form-group {
+  margin: 10px;
+}
+
+.signup button {
+  width: 430px;
+  margin: 20px 0 0 10px;
+}
+
+.signup h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signup img {
-  width: 700px;
-  height: 600px;
-  top: 0%;
-  left: 0%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
 }
 
-.signup form {
-  position: relative;
-  margin: 3rem 3rem 3rem 10rem;
-}
-
-.signup p {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
+/* AKHIR CSS SIGNUP */
 
 /* AWAL CSS CHNGPW */
 .ubahpw {
