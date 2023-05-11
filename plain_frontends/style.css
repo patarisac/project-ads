@@ -111,3 +111,36 @@
   justify-content: center;
   flex-direction: column;
 }
+
+/* AWAL CSS CHNGPW */
+.ubahpw {
+  width: 10cm;
+  height: 100%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.ubahpw button {
+  width: 10cm;
+  height: auto;
+}
+
+.ubahpw h5 {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #000;
+  margin: 30px 0;
+}
+
+button {
+  background-color: #ffff;
+}
+
+button:hover {
+  background-color: aqua;
+}
+/* AKHIR CSS CHNGPW */
