@@ -1,0 +1,113 @@
+.jumbotron {
+  /* position: relative; */
+  padding: 3rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+}
+
+.jumbotron img {
+  /* order: -1; */
+  float: end;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.navbar-brand {
+  width: 1cm;
+}
+.jumbotron h1 {
+  width: 5cm;
+  font-weight: 400;
+  font-size: 10ch;
+}
+
+.jumbotron p {
+  width: 10cm;
+  font-size: 3ch;
+}
+
+.testimoni {
+  padding: 1rem 1rem 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f5f5;
+}
+
+.testimoni p {
+  width: 8cm;
+  font-size: 2ch;
+}
+
+.testi {
+  background-color: #f2f5f5;
+  font-size: 3ch;
+  padding: 2rem 3rem 2rem 5rem;
+}
+
+.login {
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
+}
+
+.login img {
+  width: 700px;
+  height: 600px;
+  top: 0%;
+  left: 0%;
+}
+
+.login form {
+  position: relative;
+  margin: 3rem 3rem 3rem 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .login form-group {
+  padding: 1rem 1rem 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+} */
+
+.signup {
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
+}
+
+.signup img {
+  width: 700px;
+  height: 600px;
+  top: 0%;
+  left: 0%;
+}
+
+.signup form {
+  position: relative;
+  margin: 3rem 3rem 3rem 10rem;
+}
+
+.signup p {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
