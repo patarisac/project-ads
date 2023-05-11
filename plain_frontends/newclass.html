@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="newclassStyle.css" rel="stylesheet" type="text/css">
+    <title>Buat Kelas Studybuddy</title>
+    <link rel= "icon" href= "Studybuddy.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <nav class="navbar sticky-top bg-body-light" id="mainNav">
+      <div class="container-fluid">
+        <a class="logonavbar" href="#">
+          <img src="Studybuddy.png" alt="Study Buddy" class="stdbd">
+        </a>
+
+        <div class="containers">
+          <a class="icon-link" href="#">
+            <ion-icon name="notifications-outline" alt="notification" class="notif" ></ion-icon>
+            <img src="Line.png" alt="Line" class="line">
+          </a>
+          
+          <picture>
+            <source srcset="..." type="image/svg+xml">
+            <img src="..." class="img-fluid img-thumbnail" alt="...">
+          </picture>
+        </div>
+      </div>      
+    </nav>
+
+    <form>
+      <div class="container-fluid mx-2">
+        <h3>Buat Kelas Baru</h3>
+        <br>
+        <div class="rincian ">
+          <h4>Rincian Kelas</h4>
+          <div class="mb-3">
+            <label>Semester</label>
+            <select class="form-select" aria-label="default select example" style="border-color: black;">
+              <option selected>Pilih Semester</option>
+              <option value="1">Semester 1</option>
+              <option value="2">Semester 2</option>
+              <option value="3">Semester 3</option>
+              <option value="4">Semester 4</option>
+              <option value="5">Semester 5</option>
+              <option value="6">Semester 6</option>
+              <option value="7">Semester 7</option>
+              <option value="8">Semester 8</option>
+            </select>
+          </div>
+                    
+          <div class="mb-3">
+            <label>Nama Kelas</label>
+            <input class="form-control" type="text" placeholder="Nama Kelas" aria-label="Nama Kelas example" style="border-color: black;">
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Pilih Gambar</label>
+            <input class="form-control" type="file" id="formFile" style="border-color: black;">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mx-2">
+        <div class="mb-5">
+          <h4>Waktu dan Tempat</h4>
+          <div class="form-group mb-3">
+            <label for="">Tipe Kelas</label>
+            <div id="radio-container" class="mb-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" checked
+                    id="hybrid" value="option1">
+                <label class="form-check-label" for="hybrid">Hybrid</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="online" value="option2">
+                <label class="form-check-label" for="online">Online</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="offline" value="option3">
+                  <label class="form-check-label" for="offline">Offline</label>
+                </div>
+              </div>
+
+              <div id="date-container" class="form-group mb-3">
+                <label for="date">Tanggal</label>
+                <input type="date" id="date" class="form-control" style="border-color: black;">
+              </div>
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#ruangterpakai">
+                List ruangan terpakai
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="ruangterpakai" tabindex="-1" aria-labelledby="ruangterpakailabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="ruangterpakai">List ruangan terpakai</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Date: <span id="list-classrooms-date"></span></p>
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">Nama Ruangan</th>
+                                          <th scope="col">Waktu Mulai</th>
+                                          <th scope="col">Waktu Selesai</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="list-classrooms-body">
+                                      <tr>
+                                          <td>Ruang 1</td>
+                                          <td>08:00</td>
+                                          <td>10:00</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Ruang 2</td>
+                                          <td>10:00</td>
+                                          <td>12:00</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Ruang 3</td>
+                                          <td>13:00</td>
+                                          <td>15:00</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="classroom-container" class="form-group mb-3">
+                  <label for="classroom" class="ruang">Ruangan</label>
+                  <input type="text" name="" id="classroom" class="form-control" style="border-color: black;" placeholder="Tulis Ruangan">
+              </div>
+
+              <div id="time-container" class="row mb-3">
+                <div class="col-lg-6">
+                    <label for="">Waktu Mulai</label>
+                    <input type="time" name="" id="" class="form-control" style="border-color: black;">
+                </div>
+                <div class="col-lg-6">
+                    <label for="">Waktu Selesai</label>
+                    <input type="time" name="" id="" class="form-control" style="border-color: black;">
+                </div>
+              </div>
+
+              <div id="link-container" class="form-group mb-3">
+                <label for="">Link Meet</label>
+                <input type="time" name="" id="" class="form-control" style="border-color: black;" placeholder="Link Meet">
+              </div>
+
+              <div id="facility-container" class="form-group mb-3">
+                  <label for="">Fasilitas yang dibutuhkan</label>
+                  <textarea name="Fasilitas" class="form-control" id="" cols="30" rows="10" style="border-color: black" ></textarea>
+              </div>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" href="">
+          <button type="button" class="btn btn-outline-dark">Batal</button>
+          <button type="button" class="btn btn-dark">Simpan</button>
+        </div>
+      </div>
+    </form>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<script>
+const hybridContainer = {
+date: document.getElementById('date-container'),
+roomButton: document.getElementById('open-list-ruangan'),
+classroom: document.getElementById('classroom-container'),
+time: document.getElementById('time-container'),
+link: document.getElementById('link-container'),
+facility: document.getElementById('facility-container')
+};
+
+
+const onlineContainer = {
+date: document.getElementById('date-container'),
+time: document.getElementById('time-container'),
+link: document.getElementById('link-container')
+};
+
+const offlineContainer = {
+date: document.getElementById('date-container'),
+roomButton: document.getElementById('open-list-ruangan'),
+classroom: document.getElementById('classroom-container'),
+time: document.getElementById('time-container'),
+facility: document.getElementById('facility-container')
+};
+
+const radioButtons = document.getElementsByName('inlineRadioOptions');
+
+for (const radio of radioButtons) {
+radio.addEventListener('change', function() {
+if (this.id === 'hybrid') {
+    hideContainers(onlineContainer, offlineContainer);
+    showContainers(hybridContainer);
+} else if (this.id === 'online') {
+    hideContainers(hybridContainer, offlineContainer);
+    showContainers(onlineContainer);
+} else if (this.id === 'offline') {
+    hideContainers(hybridContainer, onlineContainer);
+    showContainers(offlineContainer);
+}
+});
+}
+
+function hideContainers(...containers) {
+for (const container of containers) {
+for (const input of Object.values(container)) {
+    input.style.display = 'none';
+}
+}
+}
+
+function showContainers(container) {
+for (const input of Object.values(container)) {
+input.style.display = '';
+}
+}
+</script>
+</body>
+
+</html>
