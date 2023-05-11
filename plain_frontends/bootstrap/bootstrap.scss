@@ -1,0 +1,23 @@
+// Importing fonts
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../../node_modules/bootstrap/scss/functions";
+
+$primary: #738598;
+
+// Include any default variable overrides here
+$theme-colors: (
+// Override theme (removing the original theme)
+);
+// Use this to just add some colors
+// $theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Changing font base
+$font-family-base: 'Ubuntu', sans-serif;
+
+@import "../../../node_modules/bootstrap/scss/variables";
+
+// Include any default map overrides here
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
