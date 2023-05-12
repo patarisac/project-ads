@@ -181,4 +181,30 @@ button {
 button:hover {
   background-color: aqua;
 }
+
+
+.logonavbar{
+  padding-left: 10px;
+}
+
+.navbar{
+  background-color: rgb(222, 222, 222);
+}
+
+.stdbd{
+  width: 60px;
+  height:42px;
+}
+
+.notif{
+  height: 27px; 
+  width: 27px; 
+  color: black;
+  margin-left: 1200px;
+}
+
+.line{
+height: 50px;
+}
 /* AKHIR CSS CHNGPW */
+
