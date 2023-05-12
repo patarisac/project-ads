@@ -87,8 +87,9 @@ picture{
     background-color: rgb(255, 255, 255);
 }
 
-.kelastutor .container-fluid {
-    padding-left: 0px;
+.kelastutor .nav-btn .btn{
+    border-radius: 50px;
+    border-width: 2px;
 }
 
 .add{
@@ -125,4 +126,8 @@ picture{
     font-size: 15px;
     color:gray;
     font-family: monospace;
+}
+
+.row-cols-1{
+    color: gray;
 }
