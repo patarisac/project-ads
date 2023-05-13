@@ -66,16 +66,16 @@
 
     <ul class="nav nav-underline justify-content-center">
         <li class="nav-item">
-          <a class="nav-link"  href="home.html">Semua Kelas</a>
+          <a class="nav-link"  href="home.html">Jadwal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="kelasDiikuti.html">Kelas Diikuti</a>
+          <a class="nav-link" aria-current="page" href="kelasDiikuti.html">Kelas Diikuti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="kelasSaya.html">Kelas Saya</a>
+          <a class="nav-link active" aria-current="page" href="kelasSaya.html">Kelas Saya</a>
         </li>
     </ul>
-
+    
     <div class="container d-flex align-middle mb-3" style="margin-top: 2%;">
         <div class="card" style=" width: 900px;">
             <div class="row g-0">
@@ -85,13 +85,33 @@
                 <div class="col-md-8">
                     <div class="card-body" style="width: 580px; margin-right: 0px;">
                         <h5 class="card-title" style="font-weight: bold; font-size: 200%;">Analisis Desain Sistem</h5>
-                        <div class="btn btn-md row-cols-1" style="margin-top: 18px; margin-bottom: 0px;" >
-                            <button type="button" class="btn btn-outline-dark" style="margin-bottom: 10px;">Small button</button>
+                        <div class="btnkelas" style="margin-top: 59px;">
+                            
+                                <a role="button" href="editclass.html" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px;">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                    Edit
+                                </a>
+                            
+                            
+                                <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px;" data-bs-toggle="modal" data-bs-target="#HapusModal" >
+                                    <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
+                                    Hapus
+                                </button>
+                                <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content">
+                                        <div class="hapuskls modal-body">
+                                          Apakah anda yakin ingin  menghapus kelas?
+                                            <label class="btnhapus">
+                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
+                                            <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
+                                            </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
                             
                         </div>
-                        <div class="btn btn-md row-cols-1" style="margin-top: 6px; margin-bottom: 0px;" >
-                            <button type="button" class="btn btn-dark">Small button</button>
-                        </div>
                     </div>
                 </div>
                 <div class="column-gap" style="width: 1px;">
@@ -129,7 +149,32 @@
                 <div class="col-md-8">
                     <div class="card-body" style="width: 580px; margin-right: 0px;">
                         <h5 class="card-title" style="font-weight: bold; font-size: 200%;">Analisis Desain Sistem</h5>
-
+                        <div class="btnkelas" style="margin-top: 59px;">
+                            <a class="btn btn-outline-dark" href="editclass.html" role="button" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px;">
+                                <ion-icon name="create-outline"></ion-icon>
+                                Edit
+                            </a>
+                        
+                        
+                            <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px;" data-bs-toggle="modal" data-bs-target="#HapusModal" >
+                                <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
+                                Hapus
+                            </button>
+                            <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="hapuskls modal-body">
+                                      Apakah anda yakin ingin  menghapus kelas?
+                                        <label class="btnhapus">
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
+                                        <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
+                                        </label>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        
+                        </div>
                     </div>
                 </div>
                 <div class="column-gap" style="width: 1px;">
@@ -157,6 +202,7 @@
             </div>
         </div>
     </div>
+
     
 
 

@@ -69,10 +69,10 @@
           <a class="nav-link active" aria-current="page" href="home.html">Jadwal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="kelasDiikuti.html">Kelas diikuti</a>
+          <a class="nav-link" href="kelasDiikuti.html">Kelas Diikuti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Kelas saya</a>
+          <a class="nav-link" href="kelasSaya.html">Kelas Saya</a>
         </li>
       </ul>
 
@@ -89,6 +89,7 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
+                            <form>
                             <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel" style="margin-left: 18%;">Undang orang lain menjadi tutor</h1>
                             </div>
@@ -116,11 +117,12 @@
                                 <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
                                     Batal
                                 </button>
-                                <button type="button"  class="btn btn-dark" type="submit" href="editclass.html">
+                                <a role="button"  class="btn btn-dark" type="submit" href="home.html">
                                     <ion-icon name="person-add" style="padding-right: 5px;"></ion-icon>    
                                     Undang
-                                </button>
+                                </a>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -159,8 +161,8 @@
             <div class="tab-pane fade show active" id="pills-All" aria-current="page" role="tabpanel" aria-labelledby="pills-All-tab" tabindex="0">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     <div class="col">
-                    <div class="card">
-                        <img src="image/bungo.jpg" class="card-img-top" alt="...">
+                    <div class="card custom-image">
+                        <img src="image/bunga.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                         <h5 class="card-title">Data mining</h5>
                         <p class="card-text"> 
@@ -178,35 +180,14 @@
                     </div>
                         
                     <div class="d-grid gap-1">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ikut Kelas
-                    </button>
-  
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Ikut Kelas</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                            Apakah anda yakin ingin mengikuti kelas ini?
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Batal</button>
-                            <button type="button"  class="btn btn-dark" type="submit" href="editclass.html">Ikut kelas</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                        <button class="btn btn-dark" type="button">Ikut Kelas</button>
                             <p class="card-text" style="text-align: end;">
                                 <img src="image/ppl.png"> N orang
                             </p>
-                        </div>
                     </div>
-                    </div>
+                </div>
+                </div>
+
                     <div class="col">
                     <div class="card">
                         <img src="image/bungo.jpg" class="card-img-top" alt="...">
