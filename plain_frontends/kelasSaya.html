@@ -15,64 +15,63 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="font-family: 'Montserrat', sans-serif;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <nav class="navbar sticky-top bg-body-light" id="mainNav">
+    <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container-fluid">
         <a class="logonavbar" href="#">
-          <img src="image/Studybuddy.png" alt="Study Buddy" class="stdbd" />
+          <img src="image/Studybuddy.png" alt="Study Buddy" class="stdbd">
         </a>
-
-        <div class="col-sm">
-          <div class="search-bx">
-            <div class="search-icon">
-              <ion-icon name="search"></ion-icon>
-            </div>
-            <div class="search-input">
-              <input type="text" class="input" placeholder="Cari kelas" />
-            </div>
-          </div>
-        </div>
-
-        <div class="notifikasinavbar">
-          <a class="icon-link d-none d-md-inline-block align-middle" href="#">
-            <ion-icon name="notifications-outline" alt="notification" class="notif">
-              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                <span class="visually-hidden">New alerts</span>
-              </span>
-            </ion-icon>
-          </a>
-        </div>
-
-        <div class="dropdown">
-          <a class="btn btn-light btn dropdown-toggle d-lg-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <div class="d-none d-md-inline-block align-middle" style="margin-bottom: -5px">
-              <b class="d-block navbar-username" style="text-align: left">Dzakiyyahhhhhhhh</b>
-              <small class="d-block navbar-nim" style="text-align: left">G6blabla</small>
-            </div>
-          </a>
-
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="chngpw.html">
-                <ion-icon name="key"></ion-icon>
-                Ganti Password</a
-              >
+         
+        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+          <form class="search-bx d-flex" role="search" style="margin-left: 1%;">
+            <ion-icon style="font-size: 20px;" name="search"></ion-icon>
+            <input class="inp form-control me-2" type="search" placeholder="Cari kelas" aria-label="Search">
+          </form>
+          <ul class="navbar-nav ms-auto container-d-flex">
+          <div class="kanan d-flex" style="margin: 5px;">
+            <li class="nav-item">
+              <div class="notifikasinavbar">
+                <a class="icon-link d-none d-md-inline-block align-middle" href="#">
+                    <ion-icon name="notifications-outline" alt="notification" class="notif" >
+                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    </ion-icon>
+                </a>        
+              </div>
             </li>
-            <li>
-              <a class="dropdown-item" href="login.html">
-                <ion-icon name="log-out"></ion-icon>
-                Logout</a
-              >
+            <li class="nav-item dropdown">
+              <div class="dropdown">
+                <a class="btn btn-light btn dropdown-toggle d-lg-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="d-none d-md-inline-block align-middle" style="margin-bottom: -5px;">
+                    <b class="d-block navbar-username" style="text-align: left;">Dzakiyyahhhhhhhh</b>
+                    <small class="d-block navbar-nim" style="text-align: left;">G6blabla</small>
+                  </div>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="chngpw.html">
+                      <ion-icon name="key"></ion-icon>
+                      Ganti Password
+                  </a></li>
+                  <li><a class="dropdown-item" href="login.html">
+                      <ion-icon name="log-out"></ion-icon>
+                      Logout
+                  </a></li>
+              </div>
+                </ul>
+              </div>
             </li>
           </ul>
-        </div>
       </div>
     </nav>
 
@@ -88,118 +87,128 @@
       </li>
     </ul>
 
-    <div class="container d-flex align-middle mb-3" style="margin-top: 2%">
-      <div class="card" style="width: 900px">
-        <div class="row g-0">
-          <div class="col-auto" style="margin-left: 0px; margin-right: 0px">
-            <img src="image/bunga.jpg" class="img-fluid rounded-start" alt="..." style="width: 125px" />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body" style="width: 580px; margin-right: 0px">
-              <h5 class="card-title" style="font-weight: bold; font-size: 200%">Analisis Desain Sistem</h5>
-              <div class="btnkelas" style="margin-top: 59px">
-                <a role="button" href="editclass.html" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px">
-                  <ion-icon name="create-outline"></ion-icon>
-                  Edit
-                </a>
+    <div class="buatkls container d-flex align-middle mb-3" style="margin-top: 2%;">
+      <a href="newclass.html" type="button" class="buatklsbtn container d-flex btn btn-dark justify-content-center" style="width: 800px;">
+      <ion-icon style="font-size: 25px; margin-top:-3px;" name="add-outline"></ion-icon>
+      <p style="margin-top: 12px; margin-left: 10px; font-size: 20px;">Buat Kelas Baru</p>
+      </a>
+    </div>
 
-                <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px" data-bs-toggle="modal" data-bs-target="#HapusModal">
-                  <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
-                  Hapus
-                </button>
-                <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="hapuskls modal-body">
-                        Apakah anda yakin ingin menghapus kelas?
-                        <label class="btnhapus">
-                          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
-                          <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
-                        </label>
+    <div class="cardall">
+      <div class="container d-flex align-middle mb-3">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-auto">
+              <img src="image/bunga.jpg" class="imgcard img-fluid rounded-start-1" alt="gbrkelas"/>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body" style="width: 400px;">
+                <h5 class="card-title" style="font-weight: bold; font-size: 150%">Analisis Desain Sistem</h5>
+                <div class="btnkelas" style="margin-bottom: auto; padding-top: 40px;">
+                  <a role="button" href="editclass.html" class="edit btn btn-outline-dark">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Edit
+                  </a>
+
+                  <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px" data-bs-toggle="modal" data-bs-target="#HapusModal">
+                    <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
+                    Hapus
+                  </button>
+                  <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="hapuskls modal-body">
+                          Apakah anda yakin ingin menghapus kelas?
+                          <label class="btnhapus">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
+                            <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="desc column-gap" style="width: 1px;">
+              <img src="image/Line.png" style="height: 120px; width: 1px; margin-top: 15px" />
+            </div>
+            <div class="col" style="margin-left: 2%; margin-top: 10px;">
+              <div class="row-cols-1" style="margin-top: 3%">
+                <img src="image/cal.png" style="margin-left: 5px; width: 15px; align-items: center;" />
+                Hari, Tangal
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/jam.png" style="margin-left: 3px; width: 20px; align-items: center" /> Jam</label>
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/lokasi.png" style="margin-left: 5px; width: 15px; align-items: center" /> Lokasi</label>
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/ppl.png" style="margin-left: 5px; width: 15px; align-items: center" /> 15 mengikuti </label>
+              </div>
+            </div>
           </div>
-          <div class="column-gap" style="width: 1px">
-            <img src="image/Line.png" style="height: 150px; width: 1px; margin-top: 20px" />
-          </div>
-          <div class="col" style="margin-left: 2%; margin-top: 15px">
-            <div class="row-cols-1" style="margin-top: 10%">
-              <img src="image/cal.png" style="margin-left: 5px; width: 20px; margin-top: 0px; align-items: center" />
-              Hari, Tangal
+        </div>
+      </div>
+
+      <div class=" cardall container d-flex align-middle mb-3">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-auto">
+              <img src="image/bunga.jpg" class="imgcard img-fluid rounded-start-1" alt="gbrkelas"/>
             </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/jam.png" style="margin-left: 3px; width: 25px; margin-top: 0px; align-items: center" /> Jam</label>
+            <div class="col-md-7">
+              <div class="card-body" style="width: 400px;">
+                <h5 class="card-title" style="font-weight: bold; font-size: 150%">Analisis Desain Sistem</h5>
+                <div class="btnkelas" style="margin-bottom: auto; padding-top: 40px;">
+                  <a role="button" href="editclass.html" class="edit btn btn-outline-dark">
+                    <ion-icon name="create-outline"></ion-icon>
+                    Edit
+                  </a>
+
+                  <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px" data-bs-toggle="modal" data-bs-target="#HapusModal">
+                    <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
+                    Hapus
+                  </button>
+                  <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="hapuskls modal-body">
+                          Apakah anda yakin ingin menghapus kelas?
+                          <label class="btnhapus">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
+                            <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/lokasi.png" style="margin-left: 5px; width: 20px; margin-top: 0px; align-items: center" /> Lokasi</label>
+            <div class="desc column-gap" style="width: 1px;">
+              <img src="image/Line.png" style="height: 120px; width: 1px; margin-top: 15px" />
             </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/ppl.png" style="margin-left: 5px; width: 25px; margin-top: 0px; align-items: center" /> 15 mengikuti </label>
+            <div class="col" style="margin-left: 2%; margin-top: 10px;">
+              <div class="row-cols-1" style="margin-top: 3%">
+                <img src="image/cal.png" style="margin-left: 5px; width: 15px; align-items: center;" />
+                Hari, Tangal
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/jam.png" style="margin-left: 3px; width: 20px; align-items: center" /> Jam</label>
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/lokasi.png" style="margin-left: 5px; width: 15px; align-items: center" /> Lokasi</label>
+              </div>
+              <div class="row-cols-1" style="margin-top: 3%">
+                <label><img src="image/ppl.png" style="margin-left: 5px; width: 15px; align-items: center" /> 15 mengikuti </label>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="container d-flex align-middle mb-3" style="margin-top: 2%">
-      <div class="card" style="width: 900px">
-        <div class="row g-0">
-          <div class="col-auto" style="margin-left: 0px; margin-right: 0px">
-            <img src="image/bunga.jpg" class="img-fluid rounded-start" alt="..." style="width: 125px" />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body" style="width: 580px; margin-right: 0px">
-              <h5 class="card-title" style="font-weight: bold; font-size: 200%">Analisis Desain Sistem</h5>
-              <div class="btnkelas" style="margin-top: 59px">
-                <a class="btn btn-outline-dark" href="editclass.html" role="button" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px">
-                  <ion-icon name="create-outline"></ion-icon>
-                  Edit
-                </a>
-
-                <button type="button" class="btn btn-outline-dark" style="margin-top: 6px; margin-bottom: 0px; padding-left: 6px" data-bs-toggle="modal" data-bs-target="#HapusModal">
-                  <ion-icon name="trash-outline" class="d-lg-inline-block"></ion-icon>
-                  Hapus
-                </button>
-                <div class="modal fade" id="HapusModal" tabindex="-1" aria-labelledby="HapusModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="hapuskls modal-body">
-                        Apakah anda yakin ingin menghapus kelas?
-                        <label class="btnhapus">
-                          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Batal</button>
-                          <a role="button" class="btn btn-outline-dark" href="">Hapus</a>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column-gap" style="width: 1px">
-            <img src="image/Line.png" style="height: 150px; width: 1px; margin-top: 20px" />
-          </div>
-          <div class="col" style="margin-left: 2%; margin-top: 15px">
-            <div class="row-cols-1" style="margin-top: 10%">
-              <img src="image/cal.png" style="margin-left: 5px; width: 20px; margin-top: 0px; align-items: center" />
-              Hari, Tangal
-            </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/jam.png" style="margin-left: 3px; width: 25px; margin-top: 0px; align-items: center" /> Jam</label>
-            </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/lokasi.png" style="margin-left: 5px; width: 20px; margin-top: 0px; align-items: center" /> Lokasi</label>
-            </div>
-            <div class="row-cols-1" style="margin-top: 5%">
-              <label><img src="image/ppl.png" style="margin-left: 5px; width: 25px; margin-top: 0px; align-items: center" /> 15 mengikuti </label>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

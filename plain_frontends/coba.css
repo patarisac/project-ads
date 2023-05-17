@@ -16,7 +16,6 @@
     width: 27px; 
     color: black;
     margin: 10px;
-    padding-top: 5px;
 }
 
 .line{
@@ -45,18 +44,26 @@ picture{
     padding-right: 0px;
     border-radius: 40px; 
     outline: auto;
-    width: 350px;
+    width: 1000px;
+}
+
+.search-bx .search-icon{
+    font-size:1.18rem; 
+    color: black;
+    
 }
 
 .col-sm{
     margin-left: 20px ;
 }
 
+
 .search-bx .inp{
     border: none; 
     outline: none; 
-    background-color: white; 
+    background-color: unset; 
     padding:8px;
+    width: 970px;
 }
 
 .nama{
@@ -136,44 +143,3 @@ picture{
 .btnhapus{
     margin-top: 20px;
 }
-
-/*new class*/
-.klsbaru .h3{
-    padding-top: 30px;
-    text-align: center;
-}
-
-.navbar{
-    background-color: rgb(222, 222, 222);
-}
-
-.ruang{
-    padding-top: 10px;
-}
-
-/*card kelas saya*/
-.cardall{
-    margin-top: 2%;
-}
-
-.cardall .card{
-    width: 800px; 
-    height: 150px;
-    border-color: black;
-    border-width: 2px;
-}
-
-.cardall .card .imgcard{
-    width: 98.5px;
-
-}
-
-.card .edit{
-    margin-top: 6px;  
-    padding-left: 6px;
-}
-
-
-
-
-
