@@ -189,10 +189,12 @@
                     </div>
                         
                     <div class="d-grid gap-1">
-                        <button class="btn btn-dark" type="button">Ikut Kelas</button>
-                            <p class="card-text" style="text-align: end;">
-                                <img src="image/ppl.png"> N orang
-                            </p>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalikutkls">
+                            Ikut Kelas
+                        </button>
+                        <p class="card-text" style="text-align: end;">
+                            <img src="image/ppl.png"> N orang
+                        </p>
                     </div>
                 </div>
                 </div>
@@ -216,7 +218,7 @@
                             </p>
                             </div>
                             <div class="d-grid gap-1">
-                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalIkuti">
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalikutkls">
                                     Ikut Kelas
                                   </button>
                                 <p class="card-text" style="text-align: end;">
@@ -1069,6 +1071,22 @@
             </div>
         </div>
     </div>
+
+    <!--modal ikut klas-->
+    <div class="modal fade" id="modalikutkls" tabindex="-1" aria-labelledby="modalikutklsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="ikutkls modal-body" style="text-align: center">
+              Ikut Kelas Data Mining?
+              <label class="btnhapus container-fluid">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Tidak</button>
+                <a role="button" class="btn btn-dark" href="kelasDiikuti.html">Ikut</a>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

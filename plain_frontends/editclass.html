@@ -107,9 +107,9 @@
                   <input type="date" style="border-color: black;" name="" id="date" class="form-control">
               </div>
 
-              <button class="btn btn-outline-dark mb-3" id="open-list-ruangan" type="button">List
-                  ruangan
-                  terpakai</button>
+              <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="modal" data-bs-target="#open-list-ruangan">
+                List ruangan terpakai
+              </button>
 
               <div id="classroom-container" class="form-group mb-3">
                   <label for="classroom">Ruangan</label>
@@ -150,21 +150,15 @@
 </form>
 
 <!-- Add a modal container with a table of available classrooms -->
-<div class="modal fade" id="list-classrooms-modal" tabindex="-1" role="dialog"
-aria-labelledby="list-classrooms-modal-label" aria-hidden="true">
+<div class="modal fade" id="open-list-ruangan" tabindex="-1" role="dialog"
+aria-labelledby="open-list-ruangan-label" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
 <div class="modal-content">
-  <div class="modal-header">
-      <h5 class="modal-title" id="list-classrooms-modal-label">List of Available Classrooms</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-  </div>
   <div class="modal-body">
-      <p>Date: <span id="list-classrooms-date"></span></p>
-      <table class="table">
+      <p style="background-color: rgb(222, 222, 222); padding: 10px; font-weight:bold;">Tanggal: <span id="list-classrooms-date"></span></p>
+      <table class="table" style="border-color: rgb(19, 18, 18);">
           <thead>
-              <tr>
+              <tr style="background-color:  rgb(222, 222, 222);">
                   <th scope="col">Nama Ruangan</th>
                   <th scope="col">Waktu Mulai</th>
                   <th scope="col">Waktu Selesai</th>
@@ -199,6 +193,13 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 </script>
 
 <script>
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+
 const hybridContainer = {
 date: document.getElementById('date-container'),
 roomButton: document.getElementById('open-list-ruangan'),
