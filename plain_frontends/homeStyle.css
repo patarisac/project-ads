@@ -114,6 +114,10 @@ picture{
     border-width: 2px;
     margin-bottom: 50px;
 }
+
+.card .card-text{
+    font-family: 'Montserrat', sans-serif;
+}
 .pills-Semester2-tab{
     border-width: 20px;
     border-color: black;
