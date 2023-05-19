@@ -1,190 +1,183 @@
-.logonavbar{
-    padding-left: 10px;
+.logonavbar {
+  padding-left: 10px;
 }
 
-.navbar{
-    background-color: rgb(222, 222, 222);
+.navbar {
+  background-color: rgb(222, 222, 222);
 }
 
-.stdbd{
-    width: 60px;
-    height: 42px;
+.stdbd {
+  width: 60px;
+  height: 42px;
 }
 
-.notif{
-    height: 27px; 
-    width: 27px; 
-    color: black;
-    margin: 10px;
-    padding-top: 5px;
+.notif {
+  height: 27px;
+  width: 27px;
+  color: black;
+  margin: 10px;
+  padding-top: 5px;
 }
 
-.line{
-    height: 50px;
-    margin-right: 10px;
-    
+.line {
+  height: 50px;
+  margin-right: 10px;
 }
 
-picture{
-    margin-bottom: 10px;
-    margin-right: 10px;
+picture {
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .container {
-    width: 10vw; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bx {
-    display:inline-flex;
-    align-items: center;
-    background-color: #ffffff; 
-    padding: 0px 16px; 
-    padding-right: 0px;
-    border-radius: 40px; 
-    outline: auto;
-    width: 350px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0px 16px;
+  padding-right: 0px;
+  border-radius: 40px;
+  outline: auto;
+  width: 350px;
 }
 
-.col-sm{
-    margin-left: 20px ;
+.col-sm {
+  margin-left: 20px;
 }
 
-.search-bx .inp{
-    border: none; 
-    outline: none; 
-    background-color: white; 
-    padding:8px;
+.search-bx .inp {
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 8px;
 }
 
-.nama{
-    padding-left: 5px;
+.nama {
+  padding-left: 5px;
 }
 
-.nav-item .nav-link{
-    font-weight: bold;
-    color: black ;
-    margin-top: 20px;
-    margin-right: 35px;
-    margin-left: 35px;
+.nav-item .nav-link {
+  font-weight: bold;
+  color: black;
+  margin-top: 20px;
+  margin-right: 35px;
+  margin-left: 35px;
 }
 
-.kelastutor{
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 50px;
+.kelastutor {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
 }
 
-.ikutkls{
-    text-align: center; 
-    font-size: larger;
-    margin-top: 5%;
-    margin-bottom:5%;
+.ikutkls {
+  text-align: center;
+  font-size: larger;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
-.kelastutor .navbar{
-    background-color: rgb(255, 255, 255);
+.kelastutor .navbar {
+  background-color: rgb(255, 255, 255);
 }
 
-.kelastutor .nav-btn .btn{
-    border-radius: 50px;
-    border-width: 2px;
+.kelastutor .nav-btn .btn {
+  border-radius: 50px;
+  border-width: 2px;
 }
 
-.add{
-    padding-right: 5px;
+.add {
+  padding-right: 5px;
 }
 
-.semester{
-    margin-top: 40px;
-    margin-bottom: 30px;
+.semester {
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
-.kelastutor .nav .nav-btn{
-    border-radius: 100px;
-    margin: 5px;
-    border-width: 5px;
-    border-color: black;
+.kelastutor .nav .nav-btn {
+  border-radius: 100px;
+  margin: 5px;
+  border-width: 5px;
+  border-color: black;
 }
 
-.col .card{
-    border-color: black;
-    border-width: 2px;
-    margin-bottom: 50px;
+.col .card {
+  border-color: black;
+  border-width: 2px;
+  margin-bottom: 50px;
 }
 
-.card .card-text{
-    font-family: 'Montserrat', sans-serif;
+.card .card-text {
+  font-family: 'Montserrat', sans-serif;
 }
-.pills-Semester2-tab{
-    border-width: 20px;
-    border-color: black;
-}
-
-.d-grid{
-    padding: 10px;
+.pills-Semester2-tab {
+  border-width: 20px;
+  border-color: black;
 }
 
-.card-text{
-    font-size: 15px;
-    color:gray;
-    font-family: monospace;
+.d-grid {
+  padding: 10px;
 }
 
-.row-cols-1{
-    color: gray;
+.card-text {
+  font-size: 15px;
+  color: gray;
+  font-family: monospace;
 }
 
-.hapuskls{
-    text-align: center; 
-    font-size: larger;
-    margin-top: 5%;
-    margin-bottom:5%;
+.row-cols-1 {
+  color: gray;
 }
- 
-.btnhapus{
-    margin-top: 20px;
+
+.hapuskls {
+  text-align: center;
+  font-size: larger;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.btnhapus {
+  margin-top: 20px;
 }
 
 /*new class*/
-.klsbaru .h3{
-    padding-top: 30px;
-    text-align: center;
+.klsbaru .h3 {
+  padding-top: 30px;
+  text-align: center;
 }
 
-.navbar{
-    background-color: rgb(222, 222, 222);
+.navbar {
+  background-color: rgb(222, 222, 222);
 }
 
-.ruang{
-    padding-top: 10px;
+.ruang {
+  padding-top: 10px;
 }
 
 /*card kelas saya*/
-.cardall{
-    margin-top: 2%;
+.cardall {
+  margin-top: 2%;
 }
 
-.cardall .card{
-    width: 800px; 
-    height: 150px;
-    border-color: black;
-    border-width: 2px;
+.cardall .card {
+  width: 800px;
+  height: 150px;
+  border-color: black;
+  border-width: 2px;
 }
 
-.cardall .card .imgcard{
-    width: 98.5px;
-
+.cardall .card .imgcard {
+  width: 98.5px;
 }
 
-.card .edit{
-    margin-top: 6px;  
-    padding-left: 6px;
+.card .edit {
+  margin-top: 6px;
+  padding-left: 6px;
 }
-
-
-
-
-
