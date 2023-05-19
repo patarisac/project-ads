@@ -36,18 +36,32 @@
             </form>
             <ul class="navbar-nav ms-auto container-d-flex">
             <div class="kanan d-flex" style="margin: 2px;">
-              <li class="nav-item">
+              <li class="nav-item dropdown">
                     <!-- notif -->
-                    <div class="notifikasinavbar">
-                        <button type="button" class="btn position-relative" style="margin-right: 20px; margin-top: 5px;">
+                    <div class="notifikasinavbar dropdown">
+                        <button type="button" class="btn position-relative" data-bs-toggle="dropdown" style="margin-right: 20px; margin-top: 5px;">
                             <img src="E:\download\🦆 icon _bell_ (3).png" alt="notip" style="width: 25px; height: 30px;">
                             <span class="position-absolute top-5 start-60 translate-middle p-2 bg-danger border border-light rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                             </span>
                         </button>
+                            <ul class="dropdown-menu dropdown-menu-end" style="width: 350px;">
+                                <li class= "title">Notifications</li>
+                                <li class="list dropdown-item; d-flex">
+                                    <img src="E:\download\reminder.png" alt=":p">
+                                    <p style="margin: 0px;">Kelas Analisis dan Desain Sistem akan dilaksanakan hari ini di RKU jam 13:00 </p>
+                                </li>
+                                <li class="list dropdown-item; d-flex">
+                                    <img src="E:\download\undang.png"alt=":p" >
+                                    <p style="margin: 0px;">Anda diundang menjadi tutor Basis Data oleh Amel</p>
+                                    <div class="d-flex flex-col"><button>Terima</button>
+                                    <button>Tolak</button></div>
+                                </li>
+                            </ul>
                     </div>
                     <!-- selesai notif -->
                 </li>
+                <!-- profile -->
                 <li class="nav-item dropdown">
                     <div class="dropdown">
                         <a class="btn btn-light btn dropdown-toggle d-lg-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,6 +83,7 @@
                     </div>      
                 </div>
             </li>
+            <!-- selesai profil -->
             </ul>
         </div>
       </nav>

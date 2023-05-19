@@ -181,3 +181,20 @@ picture {
   margin-top: 6px;
   padding-left: 6px;
 }
+
+/* notifikasi */
+.list {
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+}
+
+.list img {
+  width: 35px;
+  height: 25px;
+  padding-right: 10px;
+}
+
+.title {
+  font-weight: bold;
+  margin: 5px 0 0 20px;
+}
