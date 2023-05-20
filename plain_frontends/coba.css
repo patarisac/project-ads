@@ -143,3 +143,17 @@ picture{
 .btnhapus{
     margin-top: 20px;
 }
+
+.frame {
+    width: 300px; /* Ukuran bingkai yang diinginkan */
+    height: 100px; /* Ukuran bingkai yang diinginkan */
+    overflow: hidden; /* Mengatur overflow agar gambar tidak keluar dari bingkai */
+  }
+  
+  .frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px; /* Mengatur jarak antara gambar dan bingkai */
+  }
+  

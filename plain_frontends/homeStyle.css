@@ -2,6 +2,7 @@
   padding-left: 10px;
 }
 
+
 .navbar {
   background-color: rgb(222, 222, 222);
 }
@@ -114,8 +115,8 @@ picture {
   margin-bottom: 50px;
 }
 
-.card .card-text {
-  font-family: 'Montserrat', sans-serif;
+.card .card-text{
+    font-family: 'Montserrat', sans-serif;
 }
 .pills-Semester2-tab {
   border-width: 20px;
