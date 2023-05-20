@@ -106,10 +106,12 @@
                   <label for="date">Tanggal</label>
                   <input type="date" style="border-color: black;" name="" id="date" class="form-control">
               </div>
-
+              
+              <div id="list-ruangan" class="form-group">
               <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="modal" data-bs-target="#open-list-ruangan">
                 List ruangan terpakai
               </button>
+              </div>
 
               <div id="classroom-container" class="form-group mb-3">
                   <label for="classroom">Ruangan</label>
@@ -199,10 +201,12 @@ const myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
+</script>
 
+<script>
 const hybridContainer = {
 date: document.getElementById('date-container'),
-roomButton: document.getElementById('open-list-ruangan'),
+roomButton: document.getElementById('list-ruangan'),
 classroom: document.getElementById('classroom-container'),
 time: document.getElementById('time-container'),
 link: document.getElementById('link-container'),
@@ -217,7 +221,7 @@ link: document.getElementById('link-container')
 
 const offlineContainer = {
 date: document.getElementById('date-container'),
-roomButton: document.getElementById('open-list-ruangan'),
+roomButton: document.getElementById('list-ruangan'),
 classroom: document.getElementById('classroom-container'),
 time: document.getElementById('time-container'),
 facility: document.getElementById('facility-container')
