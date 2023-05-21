@@ -50,7 +50,7 @@
 .testimoni img {
   width: 4ch;
   position: absolute;
-  top: 110%;
+  top: 115%;
   margin-left: 5ch;
   transform: translate(-50%, -50%);
 }
