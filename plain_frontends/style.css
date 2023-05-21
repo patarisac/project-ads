@@ -10,6 +10,11 @@
   /* align-items: flex-start; */
 }
 
+.cus-btn {
+  width: 200px;
+  height: 40px;
+}
+
 .jumbotron img {
   /* order: -1; */
   float: end;
@@ -29,7 +34,7 @@
 .jumbotron p {
   width: 10cm;
   font-size: 3ch;
-  font-family: 'Zilla Slab', serif;
+  font-family: 'Noto Sans Mono', monospace;
 }
 
 .testimoni {
