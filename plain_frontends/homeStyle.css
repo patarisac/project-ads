@@ -2,9 +2,6 @@
   padding-left: 10px;
 }
 
-.navbar {
-  background-color: rgb(222, 222, 222);
-}
 
 .stdbd {
   width: 60px;
@@ -81,10 +78,11 @@ picture {
   font-size: larger;
   margin-top: 5%;
   margin-bottom: 5%;
+
 }
 
 .kelastutor .navbar {
-  background-color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
 }
 
 .kelastutor .nav-btn .btn {
@@ -105,7 +103,7 @@ picture {
   border-radius: 100px;
   margin: 5px;
   border-width: 5px;
-  border-color: black;
+  
 }
 
 .col .card {
@@ -157,8 +155,15 @@ picture {
   text-align: center;
 }
 
-.navbar {
-  background-color: rgb(222, 222, 222);
+body {
+  min-height: 100vh;
+  max-height: fit-content;
+  position: relative;
+}
+
+.top {
+  background-color:rgb(212, 212, 212);
+  
 }
 
 .ruang {
