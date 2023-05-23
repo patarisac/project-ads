@@ -28,6 +28,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      
       <nav class="top navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
           <a class="logonavbar" href="home.html">
@@ -36,36 +37,33 @@
            
           <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto container-d-flex">
-            <div class="kanan d-flex" style="margin: 5px;">
-              <li class="nav-item">
-                <li class="nav-item dropdown">
-                  <div class="dropdown">
-                      <a class="btn btn-light btn dropdown-toggle d-lg-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <div class="d-none d-md-inline-block align-middle" style="margin-bottom: -5px;">
-                          <b class="d-block navbar-username" style="text-align: left;">Dzakiyyahhhhhhhh</b>
-                          <small class="d-block navbar-nim" style="text-align: left;">G6blabla</small>
-                          </div>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="chngpw.html">
-                              <ion-icon name="key"></ion-icon>
-                              Ganti Password
-                              </a></li>
-                          <li><a class="dropdown-item align-start" href="login.html">
-                              <ion-icon name="log-out"></ion-icon>
-                              Logout
-                              </a></li>
-                      </ul>
-                  </div>      
-              </div>
-          </li>
-          <!-- selesai profil -->
+              <li class="nav-item dropdown">
+                <div class="dropdown">
+                  <a class="btn btn-light btn dropdown-toggle d-lg" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="d-none d-md-inline-block align-middle" style="margin-bottom: -5px;">
+                      <b class="d-block navbar-username" style="text-align: left;">Dzakiyyahhhhhhhh</b>
+                      <small class="d-block navbar-nim" style="text-align: left;">G6blabla</small>
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="chngpw.html">
+                        <ion-icon name="key"></ion-icon>
+                        Ganti Password
+                    </a></li>
+                    <li><a class="dropdown-item" href="login.html">
+                        <ion-icon name="log-out"></ion-icon>
+                        Logout               
+                    </a></li>
+                  </ul>
+                </div>
+              </li>
             </ul>
+          </div>
         </div>
       </nav>
 
     <!-- awal form -->
-    <div class="ubahpw sticky-">
+    <div class="position-relative ubahpw" style="margin-top: 100px;">
       <h5 style="font-weight: bold;">Password Change</h5>
       <form>
         <div class="form-group">

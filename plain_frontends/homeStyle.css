@@ -16,10 +16,6 @@
   padding-top: 5px;
 }
 
-.line {
-  height: 50px;
-  margin-right: 10px;
-}
 
 picture {
   margin-bottom: 10px;
@@ -79,10 +75,6 @@ picture {
   margin-top: 5%;
   margin-bottom: 5%;
 
-}
-
-.kelastutor .navbar {
-  background: rgb(255, 255, 255);
 }
 
 .kelastutor .nav-btn .btn {
