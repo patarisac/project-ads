@@ -5,3 +5,7 @@ app/utils/secret.py
 node_modules
 package-lock.json
 package.json
+bin
+lib
+lib64
+pyvenv.cfg
