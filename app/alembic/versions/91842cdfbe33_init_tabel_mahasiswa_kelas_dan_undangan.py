@@ -1,8 +1,8 @@
 """init tabel mahasiswa, kelas, dan undangan
 
-Revision ID: 267d7f91ccf6
+Revision ID: 91842cdfbe33
 Revises: 
-Create Date: 2023-05-07 03:49:42.643273
+Create Date: 2023-05-19 12:42:35.920523
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '267d7f91ccf6'
+revision = '91842cdfbe33'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,8 +31,10 @@ def upgrade() -> None:
     op.create_table('kelas',
     sa.Column('tutor_id', sa.Integer(), nullable=True),
     sa.Column('namakelas', sa.String(), nullable=False),
-    sa.Column('waktumulai', sa.Date(), nullable=False),
-    sa.Column('waktuselesai', sa.Date(), nullable=False),
+    sa.Column('semester', sa.Integer(), nullable=False),
+    sa.Column('banner', sa.String(), nullable=True),
+    sa.Column('waktumulai', sa.DateTime(), nullable=False),
+    sa.Column('waktuselesai', sa.DateTime(), nullable=False),
     sa.Column('tipe', sa.String(), nullable=False),
     sa.Column('id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['tutor_id'], ['mahasiswa.id'], ),
@@ -45,15 +47,23 @@ def upgrade() -> None:
     sa.ForeignKeyConstraint(['mahasiswa_id'], ['mahasiswa.id'], ),
     sa.PrimaryKeyConstraint('kelas_id', 'mahasiswa_id')
     )
-    op.create_table('kelasonline',
+    op.create_table('kelashybrid',
+    sa.Column('link_meet', sa.String(), nullable=False),
     sa.Column('lokasi', sa.String(), nullable=False),
     sa.Column('kebutuhan', sa.String(), nullable=False),
     sa.Column('id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['id'], ['kelas.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('kelasonsite',
+    op.create_table('kelasonline',
     sa.Column('link_meet', sa.String(), nullable=False),
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['id'], ['kelas.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('kelasonsite',
+    sa.Column('lokasi', sa.String(), nullable=False),
+    sa.Column('kebutuhan', sa.String(), nullable=False),
     sa.Column('id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['id'], ['kelas.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -61,11 +71,11 @@ def upgrade() -> None:
     op.create_table('undangan',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nama_kelas', sa.String(), nullable=False),
+    sa.Column('semester', sa.Integer(), nullable=False),
     sa.Column('is_created', sa.Integer(), nullable=True),
     sa.Column('creator_id', sa.Integer(), nullable=False),
     sa.Column('tutor_id', sa.Integer(), nullable=False),
     sa.Column('kelas_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['creator_id'], ['mahasiswa.id'], ),
     sa.ForeignKeyConstraint(['kelas_id'], ['kelas.id'], ),
     sa.ForeignKeyConstraint(['tutor_id'], ['mahasiswa.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -78,6 +88,7 @@ def downgrade() -> None:
     op.drop_table('undangan')
     op.drop_table('kelasonsite')
     op.drop_table('kelasonline')
+    op.drop_table('kelashybrid')
     op.drop_table('ikut_kelas')
     op.drop_table('kelas')
     op.drop_table('mahasiswa')

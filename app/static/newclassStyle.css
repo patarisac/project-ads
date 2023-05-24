@@ -1,0 +1,33 @@
+h2{
+    padding-top: 30px;
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    max-height: fit-content;
+    position: relative;
+  }
+
+.navbar{
+    background-color:rgb(219, 219, 219);
+}
+
+.stdbd{
+    width: 60px;
+    height:42px;
+}
+
+.notif{
+    height: 27px; 
+    width: 27px; 
+    color: black;
+    margin-left: 1200px;
+}
+
+.ruang{
+    padding-top: 10px;
+}
+
+
+

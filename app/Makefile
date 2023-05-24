@@ -14,6 +14,7 @@ reset-db:
 	sudo rm -rf database_data
 	mkdir database_data
 	rm -rf alembic/versions/*
+	docker run --name studybuddy_db -p 5432:5432 -e POSTGRES_PASSWORD=passwordterkuat -e POSTGRES_DB=db -v ${PWD}/database_data:/var/lib/postgresql/data -d postgres
 	# Now you should do alembic revision and upgrade
 
 run-app:

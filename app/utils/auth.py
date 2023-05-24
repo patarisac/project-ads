@@ -1,5 +1,5 @@
 import jwt
-from fastapi import HTTPException, Security, Request
+from fastapi import HTTPException, Security, Request, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
@@ -35,17 +35,20 @@ class AuthHandler():
             payload = jwt.decode(token, self.secret, algorithms=('HS256'))
             resp['user'] = payload['sub']
         except jwt.ExpiredSignatureError:
-            resp['error'] = "Signature has expired"
+            raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail='Signature has expired')
+            # resp['error'] = "Signature has expired"
         except jwt.InvalidTokenError as e:
-            resp['error'] = "Invalid token"
+            raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail='Invalid token')
+            # resp['error'] = "Invalid token"
         return resp
 
     # def auth_wrapper(self, auth: HTTPAuthorizationCredentials = Security(security)):
     #     return self.decode_token(auth.credentials)
 
-    def auth_wrapper(self, request: Request):
+    async def auth_wrapper(self, request: Request):
         token = request.cookies.get("access-token")
         if not token:
+            # raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail='Not authenticated')
             return {"error": "Not authenticated"}
         return self.decode_token(token)
 

@@ -1,3 +1,9 @@
+body {
+  min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+}
+/* CSS INDEX */
 .jumbotron {
   /* position: relative; */
   padding: 3rem 0rem;
@@ -9,6 +15,11 @@
   /* align-items: flex-start; */
 }
 
+.cus-btn {
+  width: 200px;
+  height: 40px;
+}
+
 .jumbotron img {
   /* order: -1; */
   float: end;
@@ -18,18 +29,17 @@
   /* align-items: center; */
 }
 
-.navbar-brand {
-  width: 1cm;
-}
 .jumbotron h1 {
   width: 5cm;
   font-weight: 400;
   font-size: 10ch;
+  font-family: 'Inter', sans-serif;
 }
 
 .jumbotron p {
   width: 10cm;
   font-size: 3ch;
+  font-family: 'Noto Sans Mono', monospace;
 }
 
 .testimoni {
@@ -42,72 +52,163 @@
   background-color: #f2f5f5;
 }
 
+.testimoni img {
+  width: 4ch;
+  position: absolute;
+  top: 115%;
+  margin-left: 5ch;
+  transform: translate(-50%, -50%);
+}
+
+.lead {
+  border: 1px solid #000;
+  padding: 0 20px 0 30px;
+  width: 480px;
+  height: 280px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #ffff;
+}
+
 .testimoni p {
   width: 8cm;
-  font-size: 2ch;
+  font-size: 100%;
+  font-weight: 200;
+  /* line-height: 30px; */
+  /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
 .testi {
   background-color: #f2f5f5;
-  font-size: 3ch;
-  padding: 2rem 3rem 2rem 5rem;
+  font-size: 4ch;
+  padding: 2rem 3rem 1rem 5rem;
+  font-weight: 100;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+/* AKHIR CSS INDEX */
 
-.login {
-  position: absolute;
-  align-items: center;
-  justify-content: space-evenly;
-  display: flex;
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
-}
-
+/* AWAL CSS LOGIN */
 .login img {
-  width: 700px;
-  height: 600px;
-  top: 0%;
-  left: 0%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.form {
+  position: absolute;
+  top: 13%;
+  left: 54%;
+  /* transform: translate(-50%); */
+  margin: 0 30px 30px 30px;
+  width: 500px;
+}
+
+.login h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login form {
-  position: relative;
-  margin: 3rem 3rem 3rem 3rem;
-  align-items: center;
-  justify-content: center;
+  margin-top: 50px;
 }
 
-/* .login form-group {
-  padding: 1rem 1rem 3rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  display: flex;
-  flex-direction: row;
-} */
+.login button {
+  width: 430px;
+  margin: 20px 0 0 10px;
+}
 
-.signup {
+/* AKHIR CSS LOGIN */
+
+/* AWAL CSS SIGNUP */
+
+.alert {
   position: absolute;
-  align-items: center;
-  justify-content: space-evenly;
+  top: 0%;
+  width: 100%;
+  visibility: visible;
+}
+.form-group {
+  margin: 10px;
+}
+
+.signup button {
+  width: 430px;
+  margin: 20px 0 0 10px;
+}
+
+.signup h3 {
   display: flex;
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
+  align-items: center;
+  justify-content: center;
 }
 
 .signup img {
-  width: 700px;
-  height: 600px;
-  top: 0%;
-  left: 0%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
 }
 
-.signup form {
-  position: relative;
-  margin: 3rem 3rem 3rem 10rem;
+/* AKHIR CSS SIGNUP */
+
+/* AWAL CSS CHNGPW */
+.ubahpw {
+  width: 10cm;
+  height: 100%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-.signup p {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.ubahpw button {
+  width: 10cm;
+  height: auto;
 }
+
+.ubahpw h5 {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #000;
+  margin: 30px 0;
+}
+
+button {
+  background-color: #ffff;
+}
+
+button:hover {
+  background-color: aqua;
+}
+
+.logonavbar {
+  padding-left: 10px;
+}
+
+.navbar {
+  background-color: rgb(222, 222, 222);
+}
+
+.stdbd {
+  width: 60px;
+  height: 42px;
+}
+
+.notif {
+  height: 27px;
+  width: 27px;
+  color: black;
+  margin-left: 1200px;
+}
+
+.line {
+  height: 50px;
+}
+/* AKHIR CSS CHNGPW */

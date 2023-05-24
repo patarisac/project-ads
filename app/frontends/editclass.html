@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="{{ url_for('static', path='newclassStyle.css') }}" rel="stylesheet" type="text/css">
+    <title>Edit Class Studybuddy</title>
+    <link rel= "icon" href= "{{ url_for('static', path='img/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+  <body style="font-family: 'Montserrat', sans-serif;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <nav class="navbar navbar-expand-lg bg-body-light sticky-top">
+      <div class="container-fluid" style="padding-left: 18px;">
+        <a class="LogoNavbar" href="/browse" style="margin-left: 5px;">
+          <img src="{{ url_for('static', path='img/Studybuddy.png') }}" alt="Study Buddy" class="stdbd">
+        </a>
+
+        <div class="dropdown">
+          <a class="btn btn-light btn dropdown-toggle d-lg-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="d-none d-md-inline-block align-middle" style="margin-bottom: -5px;">
+              <b class="d-block navbar-username" style="text-align: left;">{{user.nama}}</b>
+              <small class="d-block navbar-nim" style="text-align: left;">{{user.nim}}</small>
+            </div>
+          </a>
+        
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/changepassword">
+              <ion-icon name="key"></ion-icon>
+              Ganti Password</a></li>
+            <li><a class="dropdown-item" href="/logout">
+              <ion-icon name="log-out"></ion-icon>
+              Logout</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+
+    <form action="/editkelas" method="POST" enctype="multipart/form-data">
+      <div class="container-fluid mx-2">
+        <h2 style="font-weight: bold;">Edit Kelas</h4>
+        <br>
+        <div class="rincian ">
+          <h4>Rincian Kelas</h4>
+          <div class="mb-3">
+            <label>Semester</label>
+            <select class="form-select" aria-label="default select example" style="border-color: black;" name="semester">
+              <option>Pilih Semester</option>
+              {% for i in range(1, 8) %}
+              <option {% if kelas.semester == i %} selected {% endif %}value="{{i}}">Semester {{i}}</option>
+              {% if i == 7 %}
+              <option {% if kelas.semester == 7 %} selected {% endif %} value="7">Lainnya</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+                    
+          <div class="mb-3">
+            <label>Nama Kelas</label>
+            <input class="form-control" type="text" placeholder="Nama Kelas" aria-label="Nama Kelas example" style="border-color: black;" name="namakelas" value="{{kelas.namakelas}}">
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Pilih Gambar</label>
+            <input class="form-control" type="file" id="formFile" style="border-color: black;" nama="banner">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mx-2">
+        <div class="mb-5">
+          <h4>Waktu dan Tempat</h4>
+          <div class="form-group mb-3">
+              <label for="">Tipe Kelas</label>
+              <div id="radio-container" class="mb-3">
+                {% if kelas.tipe == 'hybrid' %}
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="tipekelas" checked
+                          id="hybrid" value="hybrid">
+                      <label class="form-check-label" for="hybrid">Hybrid</label>
+                  </div>
+                {% elif kelas.tipe == 'online' %}
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="tipekelas" checked
+                          id="online" value="online">
+                      <label class="form-check-label" for="online">Online</label>
+                  </div>
+                {% elif kelas.tipe == 'onsite' %}
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="tipekelas" checked
+                          id="offline" value="onsite">
+                      <label class="form-check-label" for="offline">Onsite</label>
+                  </div>
+                {% endif %}
+              </div>
+
+              <div id="date-container" class="form-group mb-3">
+                  <label for="date">Tanggal</label>
+                  <input type="date" style="border-color: black;" name="tanggal" id="date" class="form-control" value="{{ kelas.waktumulai.strftime('%Y-%m-%d') }}">
+              </div>
+
+              <div id="list-ruangan" class="form-group">
+              <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="modal" data-bs-target="#open-list-ruangan">
+                List ruangan terpakai
+              </button>
+              </div>
+
+              <div id="classroom-container" class="form-group mb-3">
+                  <label for="classroom">Ruangan</label>
+                  <input type="text" style="border-color: black;" name="ruangan" id="classroom" class="form-control"
+                      placeholder="Ruangan" value="{{kelas.lokasi}}">
+              </div>
+
+              <div id="time-container" class="row mb-3">
+                  <div class="col-lg-6">
+                      <label for="">Waktu Mulai</label>
+                      <input type="time" style="border-color: black;" name="waktumulai" id="" class="form-control" value="{{ kelas.waktumulai.strftime('%H:%M') }}">
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="">Waktu Selesai</label>
+                      <input type="time" style="border-color: black;" name="waktuselesai" id="" class="form-control" value="{{ kelas.waktuselesai.strftime('%H:%M') }}">
+                  </div>
+              </div>
+
+              <div id="link-container" class="form-group mb-3">
+                  <label for="">Link Meet</label>
+                  <input type="link" style="border-color: black;" name="link_meet" id="" class="form-control"
+                      placeholder="Link Meet" value="{{kelas.link_meet}}">
+              </div>
+
+              <div id="facility-container" class="form-group mb-3">
+                  <label for="">Fasilitas yang dibutuhkan</label>
+                  <textarea name="fasilitas" class="form-control" style="border-color: black;" cols="30" rows="10">{{kelas.kebutuhan}}</textarea>
+              </div>
+          </div>
+      </div>
+      <div class="btneditnew d-grid gap-2 d-md-flex justify-content-md-end" href="">
+        <input type="hidden" name="kelas_id" value="{{kelas.id}}">
+        <a role="button" style="margin-bottom: 20px;" class="btn btn-outline-dark shadow-sm" href="/kelassaya">Batal</a>
+        <button role="button" style="margin-bottom: 20px;" class="btn btn-dark shadow-sm" type="submit">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<!-- Add a modal container with a table of available classrooms -->
+<div class="modal fade" id="open-list-ruangan" tabindex="-1" role="dialog"
+aria-labelledby="open-list-ruangan-label" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-body">
+      <p style="background-color: rgb(222, 222, 222); padding: 10px; font-weight:bold;">Tanggal: <span id="list-classrooms-date"></span></p>
+      <table class="table" style="border-color: rgb(19, 18, 18);">
+          <thead>
+              <tr style="background-color:  rgb(222, 222, 222);">
+                  <th scope="col">Nama Ruangan</th>
+                  <th scope="col">Waktu Mulai</th>
+                  <th scope="col">Waktu Selesai</th>
+              </tr>
+          </thead>
+          <tbody id="list-classrooms-body">
+              <tr>
+                  <td>Ruang 1</td>
+                  <td>08:00</td>
+                  <td>10:00</td>
+              </tr>
+              <tr>
+                  <td>Ruang 2</td>
+                  <td>10:00</td>
+                  <td>12:00</td>
+              </tr>
+              <tr>
+                  <td>Ruang 3</td>
+                  <td>13:00</td>
+                  <td>15:00</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<script>
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+</script>
+
+<script>
+const hybridContainer = {
+date: document.getElementById('date-container'),
+roomButton: document.getElementById('list-ruangan'),
+classroom: document.getElementById('classroom-container'),
+time: document.getElementById('time-container'),
+link: document.getElementById('link-container'),
+facility: document.getElementById('facility-container')
+};
+
+const onlineContainer = {
+date: document.getElementById('date-container'),
+time: document.getElementById('time-container'),
+link: document.getElementById('link-container')
+};
+
+const offlineContainer = {
+date: document.getElementById('date-container'),
+roomButton: document.getElementById('list-ruangan'),
+classroom: document.getElementById('classroom-container'),
+time: document.getElementById('time-container'),
+facility: document.getElementById('facility-container')
+};
+
+const radioButtons = document.getElementsByName('tipekelas');
+
+for (const radio of radioButtons) {
+radio.addEventListener('change', function() {
+  if (this.id === 'hybrid') {
+      hideContainers(onlineContainer, offlineContainer);
+      showContainers(hybridContainer);
+  } else if (this.id === 'online') {
+      hideContainers(hybridContainer, offlineContainer);
+      showContainers(onlineContainer);
+  } else if (this.id === 'offline') {
+      hideContainers(hybridContainer, onlineContainer);
+      showContainers(offlineContainer);
+  }
+});
+}
+
+
+function hideContainers(...containers) {
+for (const container of containers) {
+  for (const input of Object.values(container)) {
+      input.style.display = 'none';
+  }
+}
+}
+
+function showContainers(container) {
+for (const input of Object.values(container)) {
+  input.style.display = '';
+}
+}
+</script>
+</body>
+{%if kelas.tipe == 'online'%}
+<script>
+hideContainers(hybridContainer, offlineContainer)
+showContainers(onlineContainer)
+</script>
+{% elif kelas.tipe == 'onsite' %}
+<script>
+hideContainers(hybridContainer, onlineContainer)
+showContainers(offlineContainer)
+</script>
+{% elif kelas.tipe == 'hybrid' %}
+<script>
+hideContainers(offlineContainer, onlineContainer)
+showContainers(hybridContainer)
+</script>
+{%endif%}
+
+</html>
