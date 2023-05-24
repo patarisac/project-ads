@@ -52,6 +52,11 @@
                                 <!-- ini judul -->
                                 <li class= "list title">Notifications</li>
 
+                                <!-- ini untuk notifikasi yang masi kosong -->
+                                <li class="list dropdown-item; d-flex kosong">
+                                    <p>Anda belum memiliki notifikasi</p>
+                                </li>
+
                                 <!-- ini untuk notifikasi reminder -->
                                 <li class="list dropdown-item; d-flex tengah">
                                     <img src="image/reminder.png" alt=":p">
@@ -118,12 +123,20 @@
             <div class="container-fluid">
               <h3 style="font-weight: bold;">Kelas Tutor</h3>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-secondary shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <ion-icon name="person-add" style="padding-right: 10px;"></ion-icon>Undang Penutor</button>
-                </button>
+                    <button type="button" class="btn btn-secondary shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <ion-icon name="person-add" style="padding-right: 10px;"></ion-icon>Undang Penutor</button>
+                    </button>
   
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    
+                    <!-- warning jika nim yang diundang belum terdaftar -->
+                    <div class="alert alert-warning" role="alert">
+                        NIM yang anda masukkan belum terdaftar pada Study Buddy!
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        Anda berhasil mengundang seseorang!
+                      </div>
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="background-color: rgb(239, 239, 239);">
                             <form>

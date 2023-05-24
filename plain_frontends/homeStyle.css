@@ -2,7 +2,6 @@
   padding-left: 10px;
 }
 
-
 .stdbd {
   width: 60px;
   height: 42px;
@@ -15,7 +14,6 @@
   margin: 10px;
   padding-top: 5px;
 }
-
 
 picture {
   margin-bottom: 10px;
@@ -74,7 +72,6 @@ picture {
   font-size: larger;
   margin-top: 5%;
   margin-bottom: 5%;
-
 }
 
 .kelastutor .nav-btn .btn {
@@ -95,7 +92,6 @@ picture {
   border-radius: 100px;
   margin: 5px;
   border-width: 5px;
-  
 }
 
 .col .card {
@@ -154,8 +150,7 @@ body {
 }
 
 .top {
-  background-color:rgb(212, 212, 212);
-  
+  background-color: rgb(212, 212, 212);
 }
 
 .ruang {
@@ -184,6 +179,11 @@ body {
 }
 
 /* notifikasi */
+.kosong {
+  color: #ababab;
+  justify-content: center;
+}
+
 .notif {
   width: 350px;
   height: auto;
@@ -229,4 +229,11 @@ body {
 .choice {
   position: relative;
   left: 47%;
+}
+
+/* alert untuk invite */
+.modal .alert {
+  position: absolute;
+  top: 0%;
+  width: 100%;
 }
