@@ -1,67 +1,13 @@
-from sqlalchemy import func
 from sqlalchemy.orm import Session
 from starlette.datastructures import FormData
-from . import models, schemas
-from utils.auth import auth_handler
-from utils.date import get_time_wib, split_date
+from utils.date import *
 from datetime import datetime, date
-
-
-# def get_mahasiswa(db: Session, user_id: int):
-#     return db.query(models.User).filter(models.User.id == user_id).first()
-
-# def get_user_by_email(db: Session, email: str):
-#     return db.query(models.User).filter(models.User.email == email).first()
-
-# def get_users(db: Session, skip: int = 0, limit: int = 100):
-#     return db.query(models.User).offset(skip).limit(limit).all()
-
-def create_mahasiswa(db: Session, user: schemas.MahasiswaCreate) -> models.Mahasiswa:
-    hashed_password = auth_handler.get_password_hash(user.password)
-    new_user= models.Mahasiswa(nim=user.nim, email=user.email, nama=user.nama, hashed_password=hashed_password)
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    return new_user
-
-def get_mahasiswa(db: Session, email: str = None, nim: str = None) -> models.Mahasiswa:
-    if email:
-        user = db.query(models.Mahasiswa).filter(models.Mahasiswa.email == email).first()
-    elif nim:
-        user = db.query(models.Mahasiswa).filter(models.Mahasiswa.nim == nim).first()
-    else:
-        return None
-    return user
-
-def changepassword(db: Session, user : models.Mahasiswa, passwd : str, newpasswd : str):
-    if auth_handler.verify_password(passwd, user.hashed_password):
-        newhashpasswd = auth_handler.get_password_hash(newpasswd)
-        user.hashed_password = newhashpasswd
-        db.commit()
-        db.refresh(user)
-        return user
-    else:
-        return False
+from database import models, schemas
+from utils.auth import auth_handler
 
 def get_kelas(db: Session, id: int) -> models.Kelas :
     kelas = db.query(models.Kelas).filter(models.Kelas.id == id).first()
     return kelas
-
-def get_undangan(db: Session, id: int) -> models.Undangan:
-    undangan = db.query(models.Undangan).filter(models.Undangan.id == id).first()
-    return undangan
-
-def get_notifikasi(db: Session, user: models.Mahasiswa):
-    notif = {'kelas': [], 'undangan': []}
-    for kls in user.kelas_diikuti:
-        if kls.waktumulai.date() == date.today():
-            if kls.waktuselesai > datetime.now():
-                notif['kelas'].append(kls)
-    
-    for udg in user.undangan:
-        if not udg.is_created:
-            notif['undangan'].append(udg)
-    return notif
 
 def search_kelas(db: Session, query: str) -> list:
     rightnow = get_time_wib()
@@ -95,13 +41,6 @@ def ikut_kelas(db: Session, user: models.Mahasiswa, kelas_id: int):
     db.commit()
     db.refresh(user)
     db.refresh(kelas)
-
-def login_mahasiswa(db: Session, email: str, password: str):
-    user = get_mahasiswa(db, email)
-    if (user is None) or (not auth_handler.verify_password(password, user.hashed_password)):
-        return None
-    token = auth_handler.encode_token(email)
-    return { 'token': token }
 
 def create_kelas(db: Session, kelas: schemas.KelasCreate, ext, **attr):
     if kelas.tipe == "hybrid":
@@ -153,36 +92,19 @@ def hapus_kelas(db: Session, kelas: models.Kelas):
     db.commit()
     db.refresh(kelas)
 
-def create_undangan(db: Session, undangan: schemas.UndanganCreate):
-    undanganbaru = models.Undangan(nama_kelas=undangan.nama_kelas, semester=undangan.semester, creator=undangan.creator, tutor_id=undangan.tutor_id)
-    db.add(undanganbaru)
-    db.commit()
-    db.refresh(undanganbaru)
-    return undanganbaru
-
-def respond_undangan(db: Session, id: int, res: str):
-    undangan = get_undangan(db, id)
-    if res == 'accept':
-        undangan.is_created = 1
-    elif res == 'reject':
-        undangan.is_created = 2
-    else:
+def get_jadwal_ruangan(db: Session, tanggal: str) -> list:
+    try:
+        awal = datetime.fromisoformat(tanggal+'T00:00:00')
+        akhir = datetime.fromisoformat(tanggal+'T23:59:59.999999')
+        kelas = db.query(models.Kelas).filter(models.Kelas.tipe != "online").filter(models.Kelas.waktumulai > awal).filter(models.Kelas.waktuselesai < akhir).all()
+        resp = {"data": []}
+        for kls in kelas:
+            data = []
+            data.append(kls.lokasi)
+            data.append(kls.waktumulai.strftime('%H:%M'))
+            data.append(kls.waktuselesai.strftime('%H:%M'))
+            resp['data'].append(data)
+        return resp
+    except Exception as e:
+        print(e)
         return None
-    db.commit()
-    db.refresh(undangan)
-    return undangan
-
-def acc_undangan(db: Session, id: int, kelas_id: int):
-    undangan = get_undangan(db, id)
-    undangan.is_created = 1
-    undangan.kelas_id = kelas_id
-    db.commit()
-    db.refresh(undangan)
-    return undangan
-
-def dec_undangan(db: Session, id: int):
-    undangan = get_undangan(db, id)
-    undangan.is_created = 2
-    db.commit()
-    db.refresh(undangan)
-    return undangan

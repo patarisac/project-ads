@@ -6,7 +6,11 @@ from sqlalchemy.orm import Session
 # from api.base import api_router
 from database.db import get_db
 from database.schemas import MahasiswaCreate, KelasHybridCreate, KelasOnlineCreate, KelasOnsiteCreate, KelasCreate, UndanganCreate
-from database.crud import create_mahasiswa, login_mahasiswa, create_kelas, get_mahasiswa, get_kelas, get_kelas_aktif, get_kelas_saya, get_kelas_diikuti, get_undangan, create_undangan, respond_undangan, ikut_kelas, changepassword, get_notifikasi, acc_undangan, dec_undangan, search_kelas, hapus_kelas, edit_kelas
+# from database.crud import create_kelas, get_kelas, get_kelas_aktif, get_kelas_saya, get_kelas_diikuti, get_undangan, create_undangan, respond_undangan, ikut_kelas, get_notifikasi, acc_undangan, dec_undangan, search_kelas, hapus_kelas, edit_kelas
+from crud.mahasiswa import *
+from crud.kelas import *
+from crud.undangan import *
+from crud.notifikasi import *
 from utils.auth import auth_handler
 from utils.date import split_date
 from utils.files import save_img
@@ -64,16 +68,16 @@ async def post_register(request: Request, db: Session = Depends(get_db)):
         email = form.get('email')
         if not email.endswith("@apps.ipb.ac.id"):
             context['error'] = 'invalid_email'
-            return frontends.TemplateResponse("signup.html", context)
+            return frontends.TemplateResponse("register.html", context)
         context['email'] = email
         password = form.get('password')
         if len(password) < 8:
             context['error'] = 'invalid_len_pass'
-            return frontends.TemplateResponse("signup.html", context)
+            return frontends.TemplateResponse("register.html", context)
         cpassword = form.get('cpassword')
         if password != cpassword:
             context['error'] = 'invalid_cpass'
-            return frontends.TemplateResponse("signup.html", context)
+            return frontends.TemplateResponse("register.html", context)
         user = MahasiswaCreate(nim = nim, email=email, nama=nama, password=password)
         user = create_mahasiswa(db, user)
         return RedirectResponse(url='/login', status_code=status.HTTP_302_FOUND)
@@ -370,5 +374,19 @@ async def get_hapuskelas(request: Request, kelas_id: int, db: Session = Depends(
         if kelas != None and kelas.tutor_id == user.id:
             hapus_kelas(db, kelas)
         return RedirectResponse(url='/kelassaya')
+    finally:
+        db.close()
+
+@app.get("/get_jadwal_ruangan/{tanggal}")
+async def get_hapuskelas(request: Request, tanggal: str, db: Session = Depends(get_db), auth=Depends(auth_handler.auth_wrapper)):
+    try:
+        context = {"request": request}
+        user = get_mahasiswa(db, email=auth.get('user'))
+        if user == None:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+        print(tanggal)
+        print(type(tanggal))
+        resp = get_jadwal_ruangan(db, tanggal)
+        return resp
     finally:
         db.close()
