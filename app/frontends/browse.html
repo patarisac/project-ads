@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="{{ url_for('static', path='homeStyle.css') }}" rel="stylesheet" type="text/css">
+    <link href="/static/homeStyle.css" rel="stylesheet" type="text/css">
     <title>Home Studdybuddy</title>
-    <link rel= "icon" href= "{{ url_for('static', path='img/logo.png') }}">
+    <link rel= "icon" href= "/static/img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
     <nav class="top navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
           <a class="logonavbar" href="/browse">
-            <img src="{{ url_for('static', path='img/Studybuddy.png') }}" alt="Study Buddy" class="stdbd">
+            <img src="/static/img/Studybuddy.png" alt="Study Buddy" class="stdbd">
           </a>
            
           <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
@@ -42,7 +42,7 @@
                     <div class="notifikasinavbar dropdown">
                         <!-- ini buat loncengnya -->
                         <button type="button" class="btn position-relative" data-bs-toggle="dropdown" style="margin-right: 20px; margin-top: 5px;">
-                            <img src="{{ url_for('static', path='img/notif.png') }}" alt="notif" style="width: 25px; height: 30px;">
+                            <img src="/static/img/notif.png" alt="notif" style="width: 25px; height: 30px;">
                             {% if (notif.kelas|length != 0) or (notif.undangan|length != 0) %}
                             <span class="position-absolute top-5 start-60 translate-middle p-2 bg-danger border border-light rounded-circle">
                             <span class="visually-hidden">New alerts</span>
@@ -56,7 +56,7 @@
                                 {% for kls in notif.kelas %}
                                 <!-- ini untuk notifikasi reminder -->
                                 <li class="list dropdown-item; d-flex tengah">
-                                    <img src="{{ url_for('static', path='img/reminder.png') }}" alt=":p">
+                                    <img src="/static/img/reminder.png" alt=":p">
                                     <p>{{kls.namakelas}} akan dilaksanakan hari ini {% if kls.tipe == 'online' %} secara online {% else %} di {{kls.lokasi}} {% endif %} pada jam {{ kls.waktumulai.strftime('%H:%M') }} </p>
                                 </li>
                                 {% endfor %}
@@ -65,7 +65,7 @@
                                 <!-- ini untuk notifikasi undang -->
                                 <li class="list dropdown-item;">
                                     <div class="d-flex tengah">
-                                        <img src="{{ url_for('static', path='img/undang.png') }}"alt=":p" >
+                                        <img src="/static/img/undang.png"alt=":p" >
                                         <p>Anda diundang menjadi tutor pada kelas {{udg.nama_kelas}} oleh {{udg.creator}}</p>
                                     </div>
                                     <div class="choice d-flex justify-content-start">
@@ -206,20 +206,20 @@
                     {% for kls in kelas %}
                     <div class="col">
                     <div class="card shadow-sm">
-                        <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                        <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                         <div class="card-body shadow-sm">
                         <h5 class="card-title">{{ kls.namakelas }}</h5>
                         <p class="card-text"> 
-                            <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                            <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                         </p>
                         <p class="card-text">
-                            <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                            <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                         </p>
                         <p class="card-text">
-                            <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                            <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                         </p>
                         <p class="card-text">
-                            <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                            <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                         </p>
                         </div>
                         
@@ -232,7 +232,7 @@
                         </button>
                         {% endif %}
                         <p class="card-text" style="text-align: end;">
-                            <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                            <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                         </p>
                     </div>
                     </div>
@@ -260,20 +260,20 @@
                             {% if kls.semester == 1 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -286,7 +286,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -316,20 +316,20 @@
                             {% if kls.semester == 2 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -342,7 +342,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -371,20 +371,20 @@
                             {% if kls.semester == 3 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -397,7 +397,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -426,20 +426,20 @@
                             {% if kls.semester == 4 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -452,7 +452,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -481,20 +481,20 @@
                             {% if kls.semester == 5 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -507,7 +507,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -536,20 +536,20 @@
                             {% if kls.semester == 6 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -562,7 +562,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
@@ -591,20 +591,20 @@
                             {% if kls.semester == 7 %}
                             <div class="col">
                             <div class="card shadow-sm">
-                                <img src="{{ url_for('static', path='img/bannerkelas/') }}{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
+                                <img src="/static/img/bannerkelas/{{ kls.banner }}" class="card-img-top" style="object-fit: cover;" height="200" alt="...">
                                 <div class="card-body shadow-sm">
                                 <h5 class="card-title">{{ kls.namakelas }}</h5>
                                 <p class="card-text"> 
-                                    <img src="{{ url_for('static', path='img/teach.png') }}"> <label class="penutor">{{kls.tutor.nama}}</label>
+                                    <img src="/static/img/teach.png"> <label class="penutor">{{kls.tutor.nama}}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/cal.png') }}"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
+                                    <img src="/static/img/cal.png"> <label class="penutor">{{ kls.waktumulai.strftime('%d %B %Y') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/jam.png') }}" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
+                                    <img src="/static/img/jam.png" style="width: 30px;"> <label class="penutor">{{ kls.waktumulai.strftime('%H:%M') }} - {{ kls.waktuselesai.strftime('%H:%M') }}</label>
                                 </p>
                                 <p class="card-text">
-                                    <img src="{{ url_for('static', path='img/lokasi.png') }}"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
+                                    <img src="/static/img/lokasi.png"> <label class="penutor">{{ kls|attr('lokasi') or 'Daring' }}</label>
                                 </p>
                                 </div>
                                 
@@ -617,7 +617,7 @@
                                 </button>
                                 {% endif %}
                                 <p class="card-text" style="text-align: end;">
-                                    <img src="{{ url_for('static', path='img/ppl.png') }}"> {{ kls.peserta|length }} orang
+                                    <img src="/static/img/ppl.png"> {{ kls.peserta|length }} orang
                                 </p>
                             </div>
                             </div>
