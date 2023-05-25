@@ -230,10 +230,3 @@ body {
   position: relative;
   left: 47%;
 }
-
-/* alert untuk invite */
-.modal .alert {
-  position: absolute;
-  top: 0%;
-  width: 100%;
-}
