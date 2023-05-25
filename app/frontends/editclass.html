@@ -206,6 +206,24 @@ formtanggal.addEventListener("change", async function() {
   }
 })
 
+async function _preupdate_list_ruangan(){
+  const pre_resp = await get_data_ruangan(formtanggal.value);
+  const pre_data = pre_resp['data'];
+  const pre_new_tanggal = new Date(this.value);
+  const pre_date_all = pre_new_tanggal.toDateString().split(" GMT")[0].split(" ");
+  const pre_date_string = pre_date_all[2] + " " + pre_date_all[1] + " " + pre_date_all[3];
+  const pre_isi_modal = document.getElementById('modal-list-ruangan-isi');
+  tanggal_modal.innerHTML = "Tanggal: " + pre_date_string;
+  pre_isi_modal.innerHTML = "";
+  for (d of pre_data) {
+    const baris = "<tr><td>" + d[0] + "</td><td>" + d[1] + "</td><td>" + d[2] + "</td></tr>"
+    pre_isi_modal.innerHTML += baris
+  }
+}
+_preupdate_list_ruangan()
+
+
+
 </script>
 
 
