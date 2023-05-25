@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from database.db import get_db
 from database import schemas
 from utils.auth import auth_handler
-import crud
+import controllers
 
 router = APIRouter(tags=['core'])
 frontends = Jinja2Templates(directory="frontends")
@@ -16,7 +16,7 @@ class Mahasiswa:
     async def get_changepassword(request: Request, db: Session = Depends(get_db), auth=Depends(auth_handler.auth_wrapper)):
         try:
             context = {"request": request}
-            user = crud.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
+            user = controllers.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
             context["user"] = user
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
@@ -29,7 +29,7 @@ class Mahasiswa:
     async def post_changepassword(request: Request, db: Session = Depends(get_db), auth=Depends(auth_handler.auth_wrapper)):
         try:
             context = {"request": request}
-            user = crud.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
+            user = controllers.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
             context["user"] = user
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
@@ -43,7 +43,7 @@ class Mahasiswa:
             if newpasswd != cnewpasswd:
                 context['error'] = 'invalid_cpass'
                 return frontends.TemplateResponse("chngpw.html", context)
-            changepass = crud.mahasiswa.changepassword(db, user, passwd, newpasswd)
+            changepass = controllers.mahasiswa.changepassword(db, user, passwd, newpasswd)
             if not changepass:
                 context['error'] = 'invalid_pass'
                 return frontends.TemplateResponse("chngpw.html", context)

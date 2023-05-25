@@ -52,9 +52,9 @@ class KelasController:
 
     def create_kelas(self, db: Session, kelas: schemas.KelasCreate, ext, **attr):
         if kelas.tipe == "hybrid":
-            kelasbaru = models.KelasHybrid(tutor_id=kelas.tutor_id, namakelas=kelas.nama_kelas, semester=kelas.semester, waktumulai=kelas.waktumulai, waktuselesai=kelas.waktuselesai, tipe=kelas.tipe, link_meet=attr.get("link_meet"), lokasi=attr.get("lokasi"), kebutuhan=attr.get("kebutuhan"))
+            kelasbaru = models.KelasHybrid(tutor_id=kelas.tutor_id, namakelas=kelas.nama_kelas, semester=kelas.semester, waktumulai=kelas.waktumulai, waktuselesai=kelas.waktuselesai, tipe=kelas.tipe, link_meet=attr.get("link_meet"), lokasi=attr.get("lokasi"))
         elif kelas.tipe == "onsite":
-            kelasbaru = models.KelasOnsite(tutor_id=kelas.tutor_id, namakelas=kelas.nama_kelas, semester=kelas.semester, waktumulai=kelas.waktumulai, waktuselesai=kelas.waktuselesai, tipe=kelas.tipe, lokasi=attr.get("lokasi"), kebutuhan=attr.get("kebutuhan"))
+            kelasbaru = models.KelasOnsite(tutor_id=kelas.tutor_id, namakelas=kelas.nama_kelas, semester=kelas.semester, waktumulai=kelas.waktumulai, waktuselesai=kelas.waktuselesai, tipe=kelas.tipe, lokasi=attr.get("lokasi"))
         else:
             kelasbaru = models.KelasOnline(tutor_id=kelas.tutor_id, namakelas=kelas.nama_kelas, semester=kelas.semester, waktumulai=kelas.waktumulai, waktuselesai=kelas.waktuselesai, tipe=kelas.tipe, link_meet=attr.get("link_meet"))
         db.add(kelasbaru)
@@ -96,8 +96,6 @@ class KelasController:
         if kelas.tipe == 'hybrid' or kelas.tipe == 'onsite':
             if kelas.lokasi != form.get('ruangan'):
                 kelas.lokasi = form.get('ruangan')
-            if kelas.kebutuhan != form.get('fasilitas'):
-                kelas.kebutuhan = form.get('fasilitas')
         db.commit()
         db.refresh(kelas)
 

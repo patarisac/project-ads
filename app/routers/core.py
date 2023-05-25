@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from database.db import get_db
 from database import schemas
 from utils.auth import auth_handler
-import crud
+import controllers
 
 router = APIRouter(tags=['core'])
 frontends = Jinja2Templates(directory="frontends")
@@ -57,7 +57,7 @@ class Core:
                 context['error'] = 'invalid_cpass'
                 return frontends.TemplateResponse("register.html", context)
             user = schemas.MahasiswaCreate(nim = nim.upper(), email=email, nama=nama, password=password)
-            user = crud.mahasiswa.create_mahasiswa(db, user)
+            user = controllers.mahasiswa.create_mahasiswa(db, user)
             token = auth_handler.encode_token(user.email)
             resp = RedirectResponse(url='/login', status_code=status.HTTP_302_FOUND)
             resp.set_cookie(key="access-token", value=token, max_age=3600*24, secure=True, httponly=True)
@@ -73,7 +73,7 @@ class Core:
             email = form.get('email')
             context['email'] = email
             password = form.get('password')
-            token = crud.mahasiswa.login_mahasiswa(db, email, password)
+            token = controllers.mahasiswa.login_mahasiswa(db, email, password)
             if not token:
                 context['error'] = "invalid_login"
                 return frontends.TemplateResponse("login.html", context, status_code=401)
