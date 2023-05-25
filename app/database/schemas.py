@@ -37,7 +37,6 @@ class KelasOnlineCreate(KelasOnlineBase):
 
 class KelasOnsiteBase(KelasBase):
     lokasi: str
-    kebutuhan: str
 
 class KelasOnsite(KelasOnsiteBase):
     id: int
@@ -48,7 +47,6 @@ class KelasOnsiteCreate(KelasOnsiteBase):
 class KelasHybridBase(KelasBase):
     link_meet: str
     lokasi: str
-    kebutuhan: str
 
 class KelasHybrid(KelasHybridBase):
     id: int
