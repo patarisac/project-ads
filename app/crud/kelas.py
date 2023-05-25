@@ -64,13 +64,11 @@ def create_kelas(db: Session, kelas: schemas.KelasCreate, ext, **attr):
 
 async def edit_kelas(db: Session, form: FormData):
     kelas = get_kelas(db, form.get("kelas_id"))
-    print(type(form.get('banner')))
-    if form.get("banner"):
-        print('mmasuk')
+    banner = form.get('banner')
+    if banner.filename != "":
         banner = form.get("banner")
         ext = banner.filename.split(".")[-1]
         filename = f"banner_k{kelas.id}.{ext}"
-        print(filename)
         await save_img(banner, filename)
         kelas.banner = filename
     if kelas.namakelas != form.get("namakelas"):

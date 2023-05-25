@@ -21,7 +21,6 @@ load_dotenv('.env')
 app = FastAPI()
 frontends = Jinja2Templates(directory="frontends")
 app.mount("/static", StaticFiles(directory="static"), name="static")
-# app.include_router(api_router)
 
 @app.get("/test")
 async def get_test(request: Request, db: Session = Depends(get_db), auth=Depends(auth_handler.auth_wrapper)):
@@ -272,8 +271,6 @@ async def get_editkelas(request: Request, kelas_id: int, db: Session = Depends(g
             context["user"] = user
             context["kelas"] = kelas
             return frontends.TemplateResponse("editclass.html", context)
-            # edit kelas
-            pass
         
         return RedirectResponse(url="/kelassaya", status_code=status.HTTP_303_SEE_OTHER)
     finally:
@@ -339,7 +336,6 @@ async def get_acc_undangan(request: Request, undangan_id: int, db: Session = Dep
         ref = request.headers.get("referer").removeprefix(str(request.base_url)) 
         if user == None:
             RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
-        # undangan = acc_undangan(db, undangan_id)
         undangan = get_undangan(db, undangan_id)
         context['undangan'] = undangan
         context['user'] = user
