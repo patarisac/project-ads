@@ -160,18 +160,6 @@ def create_undangan(db: Session, undangan: schemas.UndanganCreate):
     db.refresh(undanganbaru)
     return undanganbaru
 
-def respond_undangan(db: Session, id: int, res: str):
-    undangan = get_undangan(db, id)
-    if res == 'accept':
-        undangan.is_created = 1
-    elif res == 'reject':
-        undangan.is_created = 2
-    else:
-        return None
-    db.commit()
-    db.refresh(undangan)
-    return undangan
-
 def acc_undangan(db: Session, id: int, kelas_id: int):
     undangan = get_undangan(db, id)
     undangan.is_created = 1
