@@ -289,7 +289,7 @@ async def post_editkelas(request: Request, db: Session = Depends(get_db), auth=D
         form = await request.form()
         kelas = get_kelas(db, form.get('kelas_id'))
         if kelas != None and kelas.tutor == user:
-            edit_kelas(db, form)
+            await edit_kelas(db, form)
         return RedirectResponse(url='/kelassaya', status_code=status.HTTP_303_SEE_OTHER)
     finally:
         db.close()

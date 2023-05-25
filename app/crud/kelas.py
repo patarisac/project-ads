@@ -4,6 +4,7 @@ from utils.date import *
 from datetime import datetime, date
 from database import models, schemas
 from utils.auth import auth_handler
+from utils.files import save_img
 
 def get_kelas(db: Session, id: int) -> models.Kelas :
     kelas = db.query(models.Kelas).filter(models.Kelas.id == id).first()
@@ -61,8 +62,17 @@ def create_kelas(db: Session, kelas: schemas.KelasCreate, ext, **attr):
     db.refresh(kelasbaru)
     return kelasbaru
 
-def edit_kelas(db: Session, form: FormData):
+async def edit_kelas(db: Session, form: FormData):
     kelas = get_kelas(db, form.get("kelas_id"))
+    print(type(form.get('banner')))
+    if form.get("banner"):
+        print('mmasuk')
+        banner = form.get("banner")
+        ext = banner.filename.split(".")[-1]
+        filename = f"banner_k{kelas.id}.{ext}"
+        print(filename)
+        await save_img(banner, filename)
+        kelas.banner = filename
     if kelas.namakelas != form.get("namakelas"):
         kelas.namakelas = form.get('namakelas')
     if kelas.semester != int(form.get('semester')):
