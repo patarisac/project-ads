@@ -8,12 +8,15 @@
     <link rel="icon" href="image/logo.png" />
     <!-- css guweh -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="font-family: 'Montserrat', sans-serif;">
     <div class="signup">
       <!-- ini buat gambar -->
       <div>
-        <img src="E:\download\register.png" alt=":p" />
+        <img src="image\register.png" alt=":p" />
       </div>
 
       <!-- mulai form signup -->
@@ -25,7 +28,7 @@
             <input type="name" class="form-control" placeholder="Name" />
           </div>
           <div class="form-group">
-            <label>Nim</label>
+            <label>NIM</label>
             <input type="nim" class="form-control" placeholder="Nim" />
           </div>
           <div class="form-group">
@@ -41,6 +44,9 @@
             <input type="password" class="form-control" id="FormConfirmPassword" placeholder="Password" />
           </div>
           <button type="submit" class="btn btn-secondary">Sign Up</button>
+          <div class="login" style="padding-left: 10px">
+          <p>Already have an account? <a href="login.html">Login</a></p>
+          </div>
         </form>
       </div>
       <!-- akhir form Signup -->
