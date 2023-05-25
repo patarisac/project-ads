@@ -92,7 +92,10 @@ class KelasController:
             kelas.waktuselesai = kelasselesai
         if kelas.tipe == 'online' or kelas.tipe == 'hybrid':
             if kelas.link_meet != form.get('link_meet'):
-                kelas.link_meet = form.get('link_meet')
+                link_meet = form.get('link_meet')
+                if not link_meet.startswith('http'):
+                    link_meet = f"https://{link_meet}"
+                kelas.link_meet = link_meet
         if kelas.tipe == 'hybrid' or kelas.tipe == 'onsite':
             if kelas.lokasi != form.get('ruangan'):
                 kelas.lokasi = form.get('ruangan')

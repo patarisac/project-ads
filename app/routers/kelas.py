@@ -100,6 +100,8 @@ class Kelas:
             waktumulai = form.get('waktumulai')
             waktuselesai = form.get('waktuselesai')
             link_meet = form.get('link_meet')
+            if not link_meet.startswith('http'):
+                link_meet = f"https://{link_meet}"
             fasilitas = form.get('fasilitas')
             if tanggal == "" or tanggal == None:
                 return {"error": "harap pilih tanggal"}
