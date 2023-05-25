@@ -3,10 +3,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
-# from api.base import api_router
 from database.db import get_db
 from database.schemas import MahasiswaCreate, KelasHybridCreate, KelasOnlineCreate, KelasOnsiteCreate, KelasCreate, UndanganCreate
-# from database.crud import create_kelas, get_kelas, get_kelas_aktif, get_kelas_saya, get_kelas_diikuti, get_undangan, create_undangan, respond_undangan, ikut_kelas, get_notifikasi, acc_undangan, dec_undangan, search_kelas, hapus_kelas, edit_kelas
 from crud.mahasiswa import *
 from crud.kelas import *
 from crud.undangan import *

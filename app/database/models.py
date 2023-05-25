@@ -54,14 +54,12 @@ class KelasOnline(Kelas):
 class KelasOnsite(Kelas):
     __tablename__ = "kelasonsite"
     lokasi = mapped_column(String, nullable=False)
-    kebutuhan = mapped_column(String, nullable=False)
     __mapper_args__ = {"polymorphic_identity": "onsite"}
 
 class KelasHybrid(Kelas):
     __tablename__ = "kelashybrid"
     link_meet = mapped_column(String, nullable=False)
     lokasi = mapped_column(String, nullable=False)
-    kebutuhan = mapped_column(String, nullable=False)
     __mapper_args__ = {"polymorphic_identity": "hybrid"}
 
 class Undangan(Base):

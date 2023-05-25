@@ -140,10 +140,6 @@
                       placeholder="Link Meet" value="{{kelas.link_meet}}">
               </div>
 
-              <div id="facility-container" class="form-group mb-3">
-                  <label for="">Fasilitas yang dibutuhkan</label>
-                  <textarea name="fasilitas" class="form-control" style="border-color: black;" cols="30" rows="10">{{kelas.kebutuhan}}</textarea>
-              </div>
           </div>
       </div>
       <div class="btneditnew d-grid gap-2 d-md-flex justify-content-md-end" href="">
@@ -247,7 +243,6 @@ roomButton: document.getElementById('list-ruangan'),
 classroom: document.getElementById('classroom-container'),
 time: document.getElementById('time-container'),
 link: document.getElementById('link-container'),
-facility: document.getElementById('facility-container')
 };
 
 const onlineContainer = {
@@ -261,7 +256,6 @@ date: document.getElementById('date-container'),
 roomButton: document.getElementById('list-ruangan'),
 classroom: document.getElementById('classroom-container'),
 time: document.getElementById('time-container'),
-facility: document.getElementById('facility-container')
 };
 
 const radioButtons = document.getElementsByName('tipekelas');

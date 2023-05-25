@@ -8,8 +8,11 @@
     <link rel="icon" href="/static/img/logo.png" />
     <!-- css guweh -->
     <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body style="font-family: 'Montserrat', sans-serif;">
     <div class="signup">
       <!-- ini buat gambar -->
       <div>
@@ -53,6 +56,9 @@
             <input type="password" class="form-control" id="FormConfirmPassword" placeholder="Confirm Password" name="cpassword"/>
           </div>
           <button type="submit" class="btn btn-secondary">Sign Up</button>
+          <div class="login" style="padding-left: 10px">
+          <a class="dropdown-item" href="/login">Already have an account? Login</a>
+          </div>
         </form>
       </div>
       <!-- akhir form Signup -->
