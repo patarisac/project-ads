@@ -10,15 +10,15 @@ def get_kelas(db: Session, id: int) -> models.Kelas :
     kelas = db.query(models.Kelas).filter(models.Kelas.id == id).first()
     return kelas
 
-def search_kelas(db: Session, query: str) -> list:
+def search_kelas(db: Session, user: models.Mahasiswa, query: str) -> list:
     rightnow = get_time_wib()
-    kelas_aktif = db.query(models.Kelas).filter(models.Kelas.waktuselesai > rightnow).filter(func.lower(models.Kelas.namakelas).contains(func.lower(query))).all()
+    kelas_aktif = db.query(models.Kelas).filter(models.Kelas.waktuselesai > rightnow).filter(func.lower(models.Kelas.namakelas).contains(func.lower(query))).filter(models.Kelas.tutor != user).all()
     kelas_aktif = sorted(kelas_aktif, key=lambda obj: obj.waktumulai)
     return kelas_aktif
 
-def get_kelas_aktif(db: Session) -> list:
+def get_kelas_aktif(db: Session, user: models.Mahasiswa) -> list:
     rightnow = get_time_wib()
-    kelas_aktif = db.query(models.Kelas).filter(models.Kelas.waktuselesai > rightnow).all()
+    kelas_aktif = db.query(models.Kelas).filter(models.Kelas.waktuselesai > rightnow).filter(models.Kelas.tutor != user).all()
     kelas_aktif = sorted(kelas_aktif, key=lambda obj: obj.waktumulai)
     return kelas_aktif
 

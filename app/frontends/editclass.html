@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <nav class="navbar navbar-expand-lg bg-body-light sticky-top">
       <div class="container-fluid" style="padding-left: 18px;">
@@ -161,7 +162,7 @@ aria-labelledby="open-list-ruangan-label" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered" role="document">
 <div class="modal-content">
   <div class="modal-body">
-      <p style="background-color: rgb(222, 222, 222); padding: 10px; font-weight:bold;">Tanggal: <span id="list-classrooms-date"></span></p>
+      <p style="background-color: rgb(222, 222, 222); padding: 10px; font-weight:bold;" id="modal-list-ruangan-tanggal">Tanggal: </p>
       <table class="table" style="border-color: rgb(19, 18, 18);">
           <thead>
               <tr style="background-color:  rgb(222, 222, 222);">
@@ -170,28 +171,42 @@ aria-labelledby="open-list-ruangan-label" aria-hidden="true">
                   <th scope="col">Waktu Selesai</th>
               </tr>
           </thead>
-          <tbody id="list-classrooms-body">
-              <tr>
-                  <td>Ruang 1</td>
-                  <td>08:00</td>
-                  <td>10:00</td>
-              </tr>
-              <tr>
-                  <td>Ruang 2</td>
-                  <td>10:00</td>
-                  <td>12:00</td>
-              </tr>
-              <tr>
-                  <td>Ruang 3</td>
-                  <td>13:00</td>
-                  <td>15:00</td>
-              </tr>
+          <tbody id="modal-list-ruangan-isi">
           </tbody>
       </table>
   </div>
 </div>
 </div>
 </div>
+
+
+<script>
+
+async function get_data_ruangan(tanggal) {
+  const url = window.location.protocol + "//" + window.location.host + "/get_jadwal_ruangan/" + tanggal;
+  const response = await fetch(url);
+  const jsonData = await response.json();
+  return jsonData;
+}
+
+const formtanggal = document.getElementById('date');
+const tanggal_modal = document.getElementById('modal-list-ruangan-tanggal');
+formtanggal.addEventListener("change", async function() {
+  const resp = await get_data_ruangan(this.value);
+  const data = resp['data'];
+  const new_tanggal = new Date(this.value);
+  const date_all = new_tanggal.toDateString().split(" GMT")[0].split(" ");
+  const date_string = date_all[2] + " " + date_all[1] + " " + date_all[3];
+  const isi_modal = document.getElementById('modal-list-ruangan-isi');
+  tanggal_modal.innerHTML = "Tanggal: " + date_string;
+  isi_modal.innerHTML = "";
+  for (d of data) {
+    const baris = "<tr><td>" + d[0] + "</td><td>" + d[1] + "</td><td>" + d[2] + "</td></tr>"
+    isi_modal.innerHTML += baris
+  }
+})
+
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

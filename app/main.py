@@ -115,15 +115,14 @@ async def logout(request: Request, auth=Depends(auth_handler.auth_wrapper)):
 def get_browse(request: Request, search: str | None = None, db: Session = Depends(get_db), auth=Depends(auth_handler.auth_wrapper)):
     try:
         context = {"request": request}
-        user = auth.get("user")
-        user = get_mahasiswa(db, email=user)
+        user = get_mahasiswa(db, auth.get('user'))
         if not user:
             return RedirectResponse(url="/logout", status_code=status.HTTP_303_SEE_OTHER)
         notif = get_notifikasi(db, user)
         if search:
-            kelas_aktif = search_kelas(db, search)
+            kelas_aktif = search_kelas(db, user, search)
         else:
-            kelas_aktif = get_kelas_aktif(db)
+            kelas_aktif = get_kelas_aktif(db, user)
         context["user"] = user
         context["kelas"] = kelas_aktif
         context["notif"] = notif
@@ -253,8 +252,9 @@ async def post_buatkelas(request: Request, db: Session = Depends(get_db), auth=D
         if undangan:
             acc_undangan(db, undangan, kelasbaru.id)
 
-        filename = f"banner_k{kelasbaru.id}.{ext}"
-        await save_img(banner, filename)
+        if banner:
+            filename = f"banner_k{kelasbaru.id}.{ext}"
+            await save_img(banner, filename)
 
         return RedirectResponse(url="/kelassaya", status_code=status.HTTP_303_SEE_OTHER)
     finally:
