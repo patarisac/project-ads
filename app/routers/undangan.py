@@ -54,8 +54,11 @@ class Undangan:
         try:
             user = controllers.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
             context = {"request": request}
-            ref = request.headers.get("referer").removeprefix(str(request.base_url))
-            ref = ref.split("?")[0]
+            pre = str(request.base_url)
+            ref = str(request.headers.get("referer"))
+            if 'https' in ref:
+                pre = pre.replace('http', 'https') if ('https' not in pre) else pre
+            ref = ref.removeprefix(pre).split('?')[0]
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
             controllers.undangan.dec_undangan(db, undangan_id)
