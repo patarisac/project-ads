@@ -43,6 +43,8 @@ class Undangan:
             if user == None:
                 RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
             undangan = controllers.undangan.get_undangan(db, undangan_id)
+            if user.id != undangan.tutor_id:
+                RedirectResponse(url='/browse', status_code=status.HTTP_303_SEE_OTHER)
             context['undangan'] = undangan
             context['user'] = user
             return frontends.TemplateResponse("newclass.html", context)
@@ -61,7 +63,7 @@ class Undangan:
             ref = ref.removeprefix(pre).split('?')[0]
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
-            controllers.undangan.dec_undangan(db, undangan_id)
+            controllers.undangan.dec_undangan(db, user, undangan_id)
             if ref:
                 return RedirectResponse(url=f'/{ref}', status_code=status.HTTP_303_SEE_OTHER)
             else:

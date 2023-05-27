@@ -25,8 +25,10 @@ class UndanganController:
         db.refresh(undangan)
         return undangan
 
-    def dec_undangan(self, db: Session, id: int):
+    def dec_undangan(self, db: Session, user: models.Mahasiswa, id: int):
         undangan = self.get_undangan(db, id)
+        if user.id != undangan.tutor_id:
+            return False
         undangan.is_created = 2
         db.commit()
         db.refresh(undangan)
