@@ -20,7 +20,7 @@ class Kelas:
             user = controllers.mahasiswa.get_mahasiswa(db, auth.get('user'))
             if not user:
                 return RedirectResponse(url="/logout", status_code=status.HTTP_303_SEE_OTHER)
-            notif = controllers.notifikasi.get_notifikasi(db, user)
+            notif = controllers.mahasiswa.get_notifikasi(db, user)
             if undang:
                 if undang == 'success':
                     context['undang'] = undang
@@ -46,7 +46,7 @@ class Kelas:
             user = controllers.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
-            notif = controllers.notifikasi.get_notifikasi(db, user)
+            notif = controllers.mahasiswa.get_notifikasi(db, user)
             kelas_diikuti = controllers.kelas.get_kelas_diikuti(db, user)
             context["user"] = user
             context["notif"] = notif
@@ -62,7 +62,7 @@ class Kelas:
             user = controllers.mahasiswa.get_mahasiswa(db, email=auth.get('user'))
             if user == None:
                 return RedirectResponse(url='/logout', status_code=status.HTTP_303_SEE_OTHER)
-            notif = controllers.notifikasi.get_notifikasi(db, user)
+            notif = controllers.mahasiswa.get_notifikasi(db, user)
             kelas_saya = controllers.kelas.get_kelas_saya(db, user)
             context["user"] = user
             context["notif"] = notif

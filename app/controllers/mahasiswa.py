@@ -42,3 +42,15 @@ class MahasiswaController:
             return user
         else:
             return False
+
+    def get_notifikasi(self, db: Session, user: models.Mahasiswa):
+        notif = {'kelas': [], 'undangan': []}
+        for kls in user.kelas_diikuti:
+            if kls.waktumulai.date() == date.today():
+                if kls.waktuselesai > datetime.now():
+                    notif['kelas'].append(kls)
+        
+        for udg in user.undangan:
+            if not udg.is_created:
+                notif['undangan'].append(udg)
+        return notif
